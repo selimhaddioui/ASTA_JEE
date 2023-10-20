@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Projet_ASTA:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Projet_ASTA</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Projet_ASTA-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Projet_ASTA:war exploded" />
+    </root>
+  </artifact>
+</component>
