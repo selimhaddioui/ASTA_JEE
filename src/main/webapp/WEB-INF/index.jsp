@@ -24,13 +24,17 @@
                 <h3 class="panel-title">Login</h3>
             </div>
             <div class="panel-body">
-                <form action="Controleur" method="post">
+                <form action="${pageContext.request.contextPath}/hello-servlet" method="post">
                     <fieldset>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Login" name="champLogin" autofocus="">
+                            <label>
+                                <input class="form-control" placeholder="Login" name="champLogin" autofocus="">
+                            </label>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Mot de passe" name="champMotDePasse" type="password">
+                            <label>
+                                <input class="form-control" placeholder="Mot de passe" name="champMotDePasse" type="password">
+                            </label>
                         </div>
 
                         <input type="submit" name="action" value="Login" class="btn btn-primary"/>
