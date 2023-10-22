@@ -22,16 +22,16 @@ public class LoginServlet extends HttpServlet {
         if (request.getSession().getAttribute("user") != null) {
             response.sendRedirect(request.getContextPath() + "/any-secure");
         } else {
-            request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
         }
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         User user = _signInService.signIn(request.getParameter("fieldLogin"), request.getParameter("fieldPassword"));
         if (user == null) {
-            request.setAttribute("errorMessage", "Mot de passe ou login incorrect.");
+            request.setAttribute("errorMessage", "Mot de passe ou nom d'utilisateur incorrect.");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 
         } else {
             request.getSession().setAttribute("user", user);

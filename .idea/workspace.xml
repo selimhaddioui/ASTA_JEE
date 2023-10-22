@@ -9,14 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d4a7c3b-d121-4907-a383-565356d70cf6" name="Changes" comment="rapide adaptation du index.jsp à notre projet">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8d4a7c3b-d121-4907-a383-565356d70cf6" name="Changes" comment="update connexion.jsp">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/connexion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei2023/asta/projet_asta/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei2023/asta/projet_asta/controller/LoginServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Tag Library Descriptor" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -42,23 +39,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Minh-Tri/OneDrive - Efrei/S7/ProgAv/Projet_ASTA",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Minh-Tri/OneDrive - Efrei/S7/ProgAv/Projet_ASTA&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Minh-Tri\OneDrive - Efrei\S7\ProgAv\Projet_ASTA\src\main\webapp\WEB-INF" />
@@ -199,6 +196,7 @@
     <MESSAGE value="ajout META_INF pour configuration bdd&#10;ajout template index.jsp du tp3 pour exemple." />
     <MESSAGE value="déplacement de l'index.jsp dans le dossier WEB-INF" />
     <MESSAGE value="rapide adaptation du index.jsp à notre projet" />
-    <option name="LAST_COMMIT_MESSAGE" value="rapide adaptation du index.jsp à notre projet" />
+    <MESSAGE value="update connexion.jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="update connexion.jsp" />
   </component>
 </project>
