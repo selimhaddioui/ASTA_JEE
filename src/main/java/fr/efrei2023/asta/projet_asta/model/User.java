@@ -6,24 +6,22 @@ import jakarta.persistence.*;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
     @Id
-    @Column(name = "ID_User", nullable = false)
-    private String login;
+    @Column(name = "Email", nullable = false)
+    private String email;
     @Column(name = "MotDePasse", nullable = false)
     private String password;
     @Column(name = "Prenom", nullable = false)
     private String firstName;
     @Column(name = "Nom", nullable = false)
     private String lastName;
-    @Column(name = "Email")
-    private String email;
     @Column(name = "Tel")
     private String phoneNumber;
 
     public User() {
     }
 
-    public User(String login, String password) {
-        this.login = login;
+    public User(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 }
