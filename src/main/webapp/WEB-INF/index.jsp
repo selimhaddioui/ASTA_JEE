@@ -17,23 +17,23 @@
 <div class="container" style="margin-top:30px">
     <div class="col-md-4">
         <div style="color:red">
-            ${messageErreur}
+            ${errorMessage}
         </div>
         <div class="login-panel panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Login</h3>
             </div>
             <div class="panel-body">
-                <form action="${pageContext.request.contextPath}/hello-servlet" method="post">
+                <form action="${pageContext.request.contextPath}/login" method="post">
                     <fieldset>
                         <div class="form-group">
                             <label>
-                                <input class="form-control" placeholder="Login" name="champLogin" autofocus="">
+                                <input class="form-control" placeholder="Login" name="fieldLogin" autofocus="">
                             </label>
                         </div>
                         <div class="form-group">
                             <label>
-                                <input class="form-control" placeholder="Mot de passe" name="champMotDePasse" type="password">
+                                <input class="form-control" placeholder="Mot de passe" name="fieldPassword" type="password">
                             </label>
                         </div>
 
