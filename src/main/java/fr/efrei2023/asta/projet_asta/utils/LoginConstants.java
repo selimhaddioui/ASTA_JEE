@@ -13,9 +13,6 @@ public final class LoginConstants {
     public static final String PASSWORD_FIELD = "fieldPassword";
 
     // Attributes
-
-    public static final String ATTRIBUTE_NAME_FOR_USER = "user";
     public static final String ATTRIBUTE_NAME_FOR_ERROR_MESSAGE = "errorMessage";
-
     public static final String ATTRIBUTE_VALUE_FOR_ERROR_MESSAGE_WHEN_WRONG_CREDENTIAL = "Email ou mot de passe incorrect.";
 }

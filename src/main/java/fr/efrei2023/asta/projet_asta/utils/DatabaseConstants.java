@@ -1,7 +1,6 @@
 package fr.efrei2023.asta.projet_asta.utils;
 
 public final class DatabaseConstants {
-    public static final String USER_SCHEMA_NAME = "ApprentissageDB";
+    public static final String USER_SCHEMA_NAME = "ASTA_DB";
     public static final String PERSISTENCE_UNIT_NAME = "ASTA_PU";
-
 }

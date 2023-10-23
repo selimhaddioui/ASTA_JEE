@@ -2,9 +2,16 @@
 
 ## Base de données.
 
-Url, login et mot de passe indiqué dans le fichier (persistence.xml)[./src/main/resources/META_INF/persistence.xml].
+Url, login et mot de passe indiqué dans le fichier [persistence.xml](./src/main/resources/META-INF/persistence.xml).
 
 ## Login
 
-Pour simuler une connexion réussite il suffit pour l'instant de remplir les champs login & password afin qu'ils ne soient pas vides.
-Pour simuler une connexion raté il suffit de valider le formulaire en laissant les champs login & password vides.
+Connexion via l'un des logins suivant :  
+- Email 1 : asta.student@efrei.net  
+- Password 1 : student  
+
+- Email 2 : asta.student@efrei.net
+- Password 2 : tutor
+
+La connexion se fait en cherchant l'utilisateur en base de donnée.  
+La distinction entre apprenti et tuteur n'est pas encore faite.  

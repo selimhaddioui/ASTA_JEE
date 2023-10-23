@@ -14,7 +14,7 @@ public class SignInService implements ISignInService {
     public UserEntity signIn(String login, String password) {
         if(login == null || login.isEmpty() || password == null || password.isEmpty())
             return null;
-        UserEntity user = _userSessionBean.getUserByEmail(login);
+        UserEntity user = _userSessionBean.getUserByEmailOrNull(login);
         return user != null && user.isPasswordCorrect(password) ? user : null;
     }
 }

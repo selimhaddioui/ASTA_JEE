@@ -1,8 +1,10 @@
 package fr.efrei2023.asta.projet_asta.controller;
 
 import java.io.*;
+
 import fr.efrei2023.asta.projet_asta.model.UserEntity;
 import fr.efrei2023.asta.projet_asta.service.ISignInService;
+import fr.efrei2023.asta.projet_asta.utils.UserConstants;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -15,14 +17,22 @@ public class LoginServlet extends HttpServlet {
     @Inject
     private ISignInService _signInService;
 
+    /**
+     * Get method that will redirect authenticated users to their home page and non-authenticated users to sign in view.
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if (request.getSession().getAttribute(ATTRIBUTE_NAME_FOR_USER) != null) {
+        if (request.getSession().getAttribute(UserConstants.ATTRIBUTE_NAME_FOR_USER) != null) {
             response.sendRedirect(request.getContextPath() + "/any-secure");
         } else {
             request.getRequestDispatcher(LOGIN_VIEW_PATH).forward(request, response);
         }
     }
 
+    /**
+     * Post method that will try to sign in users using parameter they provide in their post request.
+     * If their credentials are corrects, they get redirected into their homepage.
+     * Otherwise they are back to sign in page with an errorMessage attribute filled.
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         UserEntity user = _signInService.signIn(request.getParameter(EMAIL_FIELD), request.getParameter(PASSWORD_FIELD));
         if (user == null) {
@@ -31,7 +41,7 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher(LOGIN_VIEW_PATH).forward(request, response);
 
         } else {
-            request.getSession().setAttribute(ATTRIBUTE_NAME_FOR_USER, user);
+            request.getSession().setAttribute(UserConstants.ATTRIBUTE_NAME_FOR_USER, user);
             response.sendRedirect(request.getContextPath() + "/any-secure");
         }
     }
