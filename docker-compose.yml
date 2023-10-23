@@ -1,9 +1,8 @@
 services:
   ASTA_PU:
-    container_name: mysql-4
+    container_name: mysql
     image: mysql
     environment:
-      MYSQL_DATABASE: ApprentissageDB
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     ports:
