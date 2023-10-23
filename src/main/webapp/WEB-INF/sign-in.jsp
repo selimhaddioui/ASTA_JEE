@@ -111,7 +111,7 @@
             <form action="${pageContext.request.contextPath}/login" method="post">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nom d'utilisateur</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="fieldLogin" autofocus="">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="fieldEmail" autofocus="">
                     <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre email.</div>
                 </div>
                 <div class="mb-3">
