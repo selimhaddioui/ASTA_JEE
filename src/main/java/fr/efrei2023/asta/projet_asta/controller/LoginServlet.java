@@ -4,6 +4,7 @@ import java.io.*;
 
 import fr.efrei2023.asta.projet_asta.model.UserEntity;
 import fr.efrei2023.asta.projet_asta.service.ISignInService;
+import fr.efrei2023.asta.projet_asta.utils.TutorConstants;
 import fr.efrei2023.asta.projet_asta.utils.UserConstants;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
@@ -22,7 +23,7 @@ public class LoginServlet extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (request.getSession().getAttribute(UserConstants.ATTRIBUTE_NAME_FOR_USER) != null) {
-            response.sendRedirect(request.getContextPath() + "/any-secure");
+            response.sendRedirect(request.getContextPath() + TutorConstants.TUTOR_SERVLET_PATH);
         } else {
             request.getRequestDispatcher(LOGIN_VIEW_PATH).forward(request, response);
         }
@@ -42,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 
         } else {
             request.getSession().setAttribute(UserConstants.ATTRIBUTE_NAME_FOR_USER, user);
-            response.sendRedirect(request.getContextPath() + "/any-secure");
+            response.sendRedirect(request.getContextPath() + TutorConstants.TUTOR_SERVLET_PATH);
         }
     }
 }
