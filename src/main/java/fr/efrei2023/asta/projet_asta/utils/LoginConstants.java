@@ -6,7 +6,7 @@ public final class LoginConstants {
     public static final String LOGIN_SERVLET_PATH = "/" + LOGIN_SERVLET_NAME;
 
     // View
-    public static final String LOGIN_VIEW_PATH = "/WEB-INF/sign-in.jsp";
+    public static final String LOGIN_VIEW_PATH = "/WEB-INF/jsp/login.jsp";
 
     // Parameters
     public static final String EMAIL_FIELD = "fieldEmail";

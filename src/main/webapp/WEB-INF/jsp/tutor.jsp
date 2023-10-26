@@ -81,7 +81,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Se déconnecter</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/logout">Se déconnecter</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">

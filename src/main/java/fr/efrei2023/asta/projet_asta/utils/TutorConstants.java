@@ -5,5 +5,5 @@ public final class TutorConstants {
     public static final String TUTOR_SERVLET_NAME = "tutor";
     public static final String TUTOR_SERVLET_PATH = "/" + TUTOR_SERVLET_NAME;
     // View
-    public static final String TUTOR_VIEW_PATH = "/WEB-INF/tutor.jsp";
+    public static final String TUTOR_VIEW_PATH = "/WEB-INF/jsp/tutor.jsp";
 }
