@@ -1,0 +1,44 @@
+.bg {
+    width: 100%;
+    display: flex;
+    background-size: cover;
+    background-color: #727272;
+}
+
+.custom-form-container {
+    color: whitesmoke;
+    background-color: #343a40;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.custom-form-title {
+    background-color: #343a40;
+    display: inline-block;
+    padding: 5px 15px;
+    margin: -20px -20px 20px -20px;
+}
+
+.rounded-table {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Feuille de style CSS */
+.custom-pagination .page-link {
+    color: black; /* Remplacez palegreen par la couleur de votre choix */
+}
+
+.custom-pagination .page-link:hover {
+    background-color: transparent;
+    color: darkgrey; /* Couleur au survol (changez-la selon vos préférences) */
+}
+
+.custom-pagination .page-item:active {
+    color: green; /* Remplacez palegreen par la couleur de votre choix */
+}
+
+/* Feuille de style CSS */
+.custom-pagination .page-item.active .page-link {
+    background-color: lightyellow; /* Couleur de fond pour la page active */
+}
