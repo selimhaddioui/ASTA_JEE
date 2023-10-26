@@ -20,7 +20,8 @@
       display: flex;
 
       background-size: 300% 300%;
-      background-image: linear-gradient(-45deg, #6d6d6d 0%, #272727 25%, #6d6d6d 51%, #3f35ff 100%);
+      background-image: none;
+        background-color: mediumpurple;
       -webkit-animation: AnimateBG 20s ease infinite;
       animation: AnimateBG 20s ease infinite;
     }
@@ -50,15 +51,14 @@
     }
 
     .custom-form-container {
-      background-color: #bebebe; /* Gris légèrement plus foncé */
-      border-radius: 10px;
+      background-color: #343a40; /* Gris légèrement plus foncé */
       padding: 20px;
     }
+
     .custom-form-title {
-      background-color: #bebebe; /* Même couleur que le fond du conteneur */
+      background-color: #343a40; /* Même couleur que le fond du conteneur */
       display: inline-block;
       padding: 5px 15px;
-      border-radius: 10px 10px 0 0; /* Coins supérieurs arrondis */
       margin: -20px -20px 20px -20px; /* Pour couvrir la bordure du conteneur */
     }
 
