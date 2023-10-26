@@ -3,7 +3,7 @@ package fr.efrei2023.asta.projet_asta.utils;
 public final class LoginConstants {
     // Servlet
     public static final String LOGIN_SERVLET_NAME = "login";
-    public static final String LOGIN_SERVLET_PATH = "/login";
+    public static final String LOGIN_SERVLET_PATH = "/" + LOGIN_SERVLET_NAME;
 
     // View
     public static final String LOGIN_VIEW_PATH = "/WEB-INF/sign-in.jsp";
