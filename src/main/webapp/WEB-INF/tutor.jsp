@@ -31,6 +31,26 @@
             overflow: hidden;
             border-radius: 10px;
         }
+
+        /* Feuille de style CSS */
+        .custom-pagination .page-link {
+            color: black; /* Remplacez palegreen par la couleur de votre choix */
+        }
+
+        .custom-pagination .page-link:hover {
+            background-color: transparent;
+            color: darkgrey; /* Couleur au survol (changez-la selon vos préférences) */
+        }
+
+        .custom-pagination .page-item:active {
+            color: green; /* Remplacez palegreen par la couleur de votre choix */
+        }
+
+        /* Feuille de style CSS */
+        .custom-pagination .page-item.active .page-link {
+            background-color: lightyellow; /* Couleur de fond pour la page active */
+        }
+
     </style>
 </head>
 
@@ -103,7 +123,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="table-light">
+                <tr class="table-warning">
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
@@ -117,7 +137,7 @@
                         <button type="button" class="btn btn-light">...</button>
                     </td>
                 </tr>
-                <tr class="table-light">
+                <tr class="table-warning">
                     <th scope="row">2</th>
                     <td>Mark</td>
                     <td>Otto</td>
@@ -131,7 +151,7 @@
                         <button type="button" class="btn btn-light">...</button>
                     </td>
                 </tr>
-                <tr class="table-light">
+                <tr class="table-warning">
                     <th scope="row">3</th>
                     <td>Mark</td>
                     <td>Otto</td>
@@ -187,7 +207,7 @@
                         <button type="button" class="btn btn-light">...</button>
                     </td>
                 </tr>
-                <tr class="table-light">
+                <tr class="table-warning">
                     <th scope="row">7</th>
                     <td>Mark</td>
                     <td>Otto</td>
@@ -203,9 +223,9 @@
                 </tr>
                 </tbody>
             </table>
-            <div class="text-center">
-                <!-- Ajoutez ici la pagination Bootstrap -->
-                <ul class="pagination">
+            <div class="d-flex justify-content-center">
+                <!-- Ajoutez ici la pagination Bootstrap avec une classe personnalisée -->
+                <ul class="pagination custom-pagination">
                     <li class="page-item disabled">
                         <span class="page-link">Précédent</span>
                     </li>
@@ -222,6 +242,10 @@
                         <a class="page-link" href="#">Suivant</a>
                     </li>
                 </ul>
+            </div>
+
+            <div class="text-center">
+                <button type="button" class="btn btn-secondary btn-lg mx-auto">Ajouter un apprenti</button>
             </div>
         </div>
     </div>
