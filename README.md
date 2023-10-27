@@ -19,4 +19,8 @@ Connexion via les logins suivants :
   - Email : tutor@efrei.net
   - Mot de passe : mdp
 
+- Utilisateur sans rôle :
+  - Email : corrupted@efrei.net
+  - Mot de passe : mdp
+
 Pour plus de logins consulter [insert_asta.sql](./src/main/resources/META-INF/sql/insert_asta.sql).

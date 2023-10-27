@@ -8,8 +8,8 @@ import static fr.efrei2023.asta.projet_asta.utils.UserConstants.*;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(
-        name = USER_TABLE_NAME,
-        schema = DatabaseConstants.USER_SCHEMA_NAME
+        name = TABLE_NAME,
+        schema = DatabaseConstants.SCHEMA_NAME
 )
 @NamedQueries({@NamedQuery(name = GET_USER_BY_EMAIL_QUERY_NAME, query = GET_USER_BY_EMAIL_QUERY)})
 public class UserEntity {

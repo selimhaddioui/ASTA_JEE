@@ -1,13 +1,11 @@
 package fr.efrei2023.asta.projet_asta.utils;
 
-import fr.efrei2023.asta.projet_asta.model.UserEntity;
-
 public final class UserConstants {
     // Attribute
-    public static final String ATTRIBUTE_NAME_FOR_USER = "user";
+    public static final String USER_ATTRIBUTE_NAME = "user";
 
     // Table
-    public static final String USER_TABLE_NAME = "Utilisateur";
+    public static final String TABLE_NAME = "Utilisateur";
 
     // Columns
     public static final String EMAIL_COLUMN_NAME = "Email";

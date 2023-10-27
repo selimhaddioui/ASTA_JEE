@@ -6,10 +6,14 @@ import jakarta.persistence.*;
 import static fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants.*;
 
 @Entity
-@Table(name = APPRENTICE_TABLE_NAME, schema = DatabaseConstants.USER_SCHEMA_NAME)
-@NamedQueries({@NamedQuery(name = GET_APPRENTICE_BY_TUTOR_QUERY_NAME, query = GET_APPRENTICE_BY_TUTOR_QUERY)})
+@Table(name = TABLE_NAME, schema = DatabaseConstants.SCHEMA_NAME)
+@NamedQueries(
+        {
+                @NamedQuery(name = GET_APPRENTICES_BY_TUTOR_QUERY_NAME, query = GET_APPRENTICES_BY_TUTOR_QUERY),
+                @NamedQuery(name = GET_USER_APPRENTICE_BY_EMAIL_QUERY_NAME, query = GET_USER_APPRENTICE_BY_EMAIL_QUERY)
+        }
+)
 public class ApprenticeEntity extends UserEntity {
-
     @Basic @Column(name = TUTOR_MAIL_COLUMN_NAME)
     private String tutorMail;
     @Basic @Column(name = PROGRAM_COLUMN_NAME)

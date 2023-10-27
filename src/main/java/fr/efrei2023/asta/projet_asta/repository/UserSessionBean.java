@@ -2,10 +2,9 @@ package fr.efrei2023.asta.projet_asta.repository;
 
 import fr.efrei2023.asta.projet_asta.model.UserEntity;
 import fr.efrei2023.asta.projet_asta.utils.DatabaseConstants;
+import fr.efrei2023.asta.projet_asta.utils.UserConstants;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.*;
-
-import static fr.efrei2023.asta.projet_asta.utils.UserConstants.*;
 
 @Stateless
 public class UserSessionBean {
@@ -13,8 +12,8 @@ public class UserSessionBean {
     private EntityManager entityManager;
 
     public UserEntity getUserByEmailOrNull(String email) {
-        Query requete = entityManager.createNamedQuery(GET_USER_BY_EMAIL_QUERY_NAME);
-        requete.setParameter(EMAIL_COLUMN_NAME, email);
+        Query requete = entityManager.createNamedQuery(UserConstants.GET_USER_BY_EMAIL_QUERY_NAME);
+        requete.setParameter(UserConstants.EMAIL_COLUMN_NAME, email);
         try {
             return (UserEntity) requete.getSingleResult();
         } catch (NoResultException e) {

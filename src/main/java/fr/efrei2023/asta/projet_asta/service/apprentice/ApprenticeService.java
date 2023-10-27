@@ -16,6 +16,6 @@ public class ApprenticeService implements IApprenticeService {
         List<ApprenticeEntity> apprentices = _apprenticeSessionBean.getApprenticesByTutor(tutorMail);
         return apprentices != null && !apprentices.isEmpty()
                 ? apprentices
-                : null;
+                : List.of();
     }
 }
