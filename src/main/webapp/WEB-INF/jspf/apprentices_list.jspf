@@ -1,0 +1,62 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Minh-Tri NGUYEN, Ilyes TALAOUBRID, Lydia TERKI, Rayan MOUSSI, Sanaa ABDELLAH, Sélim HADDIOUI
+  Date: 22/10/2023
+  Time: 15:02
+--%>
+
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<table class="table rounded-table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Prénom</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Programme</th>
+        <th scope="col">Majeure</th>
+        <th scope="col">Année Académique</th>
+        <th scope="col">Adresse Electronique</th>
+        <th scope="col">Téléphone</th>
+        <th scope="col">Entreprise</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${apprentices}" var="apprentice">
+        <tr class="table-warning">
+            <th>${apprentice.firstName}</th>
+            <th>${apprentice.lastName}</th>
+            <td>${apprentice.program}</td>
+            <td>${apprentice.major}</td>
+            <td>${apprentice.year}</td>
+            <td>${apprentice.phoneNumber}</td>
+            <td>${apprentice.company}</td>
+            <td>
+                <button type="button" class="btn btn-light">...</button>
+            </td>
+
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+    <!-- Ajoutez ici la pagination Bootstrap avec une classe personnalisée -->
+    <ul class="pagination custom-pagination">
+        <li class="page-item disabled">
+            <span class="page-link">Précédent</span>
+        </li>
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">1</span>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">Suivant</a>
+        </li>
+    </ul>
+</div>

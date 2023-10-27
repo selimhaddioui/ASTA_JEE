@@ -1,4 +1,3 @@
-<jsp:useBean id="user" scope="session" type="fr.efrei2023.asta.projet_asta.model.UserEntity"/>
 <%--
   Created by IntelliJ IDEA.
   User: Minh-Tri NGUYEN, Ilyes TALAOUBRID, Lydia TERKI, Rayan MOUSSI, Sanaa ABDELLAH, Sélim HADDIOUI

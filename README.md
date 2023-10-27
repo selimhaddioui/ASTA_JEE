@@ -15,8 +15,12 @@ Connexion via les logins suivants :
   - Email : student1@efrei.net  
   - Mot de passe : mdp  
 
-- Tuteur :
+- Tuteur avec des apprentis à charge :
   - Email : tutor@efrei.net
+  - Mot de passe : mdp
+
+- Tuteur sans apprenti à charge :
+  - Email : tutor_without_apprentice@efrei.net
   - Mot de passe : mdp
 
 - Utilisateur sans rôle :

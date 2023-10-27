@@ -1,6 +1,8 @@
 INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('tutor@efrei.net', 'mdp', 'ACHVAR', 'Didier', '0702070207');
+INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('tutor_without_apprentice@efrei.net', 'mdp', 'TUTEUR', 'tuteur', '0702070207');
 
 INSERT INTO Tuteur (Email, Poste, Remarque) VALUES ('tutor@efrei.net', 'Software Engineer', 'Une remarque');
+INSERT INTO Tuteur (Email, Poste, Remarque) VALUES ('tutor_without_apprentice@efrei.net', 'Data Scientist', 'Une remarque');
 
 INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('student0@efrei.net', 'mdp', 'Student0-LN', 'student0-FN', '0423547569');
 INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('student1@efrei.net', 'mdp', 'Student1-LN', 'student1-FN', '0602060106');
