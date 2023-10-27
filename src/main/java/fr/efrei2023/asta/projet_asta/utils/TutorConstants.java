@@ -1,6 +1,11 @@
 package fr.efrei2023.asta.projet_asta.utils;
 
 public final class TutorConstants {
+    // Attribute
+    public static final String APPRENTICES_ATTRIBUTE_NAME = "apprentices";
+    public static final String EMPTY_LIST_MESSAGE_ATTRIBUTE_NAME = "emptyListMessage";
+    public static final String EMPTY_LIST_MESSAGE_ATTRIBUTE_VALUE = "La liste est vide. Ajoutez au moins un(e) apprenti(e)";
+
     // Servlet
     public static final String SERVLET_NAME = "tutor";
     public static final String SERVLET_PATH = "/" + SERVLET_NAME;

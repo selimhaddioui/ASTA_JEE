@@ -6,6 +6,7 @@ import java.util.List;
 import fr.efrei2023.asta.projet_asta.controller.authentication.ServletRequireTutor;
 import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
 import fr.efrei2023.asta.projet_asta.service.apprentice.IApprenticeService;
+import fr.efrei2023.asta.projet_asta.utils.TutorConstants;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -22,9 +23,9 @@ public class TutorServlet extends ServletRequireTutor {
     protected void doTutorGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<ApprenticeEntity> apprentices = _apprenticeService.getApprenticesByTutor(super.getSessionTutor().getEmail());
         if (apprentices.isEmpty()) {
-            request.setAttribute("msg", "aucun apprenti pour le monsieur");
+            request.setAttribute(EMPTY_LIST_MESSAGE_ATTRIBUTE_NAME, EMPTY_LIST_MESSAGE_ATTRIBUTE_VALUE);
         } else {
-            request.setAttribute("apprenti", apprentices.get(0));
+            request.setAttribute(APPRENTICES_ATTRIBUTE_NAME, apprentices);
         }
         request.getRequestDispatcher(VIEW_PATH).forward(request, response);
     }
