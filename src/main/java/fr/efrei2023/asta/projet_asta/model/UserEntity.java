@@ -6,15 +6,14 @@ import jakarta.persistence.*;
 import static fr.efrei2023.asta.projet_asta.utils.UserConstants.*;
 
 @Entity
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(
         name = USER_TABLE_NAME,
-        schema = DatabaseConstants.USER_SCHEMA_NAME,
-        uniqueConstraints = @UniqueConstraint(columnNames = EMAIL_COLUMN_NAME)
+        schema = DatabaseConstants.USER_SCHEMA_NAME
 )
 @NamedQueries({@NamedQuery(name = GET_USER_BY_EMAIL_QUERY_NAME, query = GET_USER_BY_EMAIL_QUERY)})
 public class UserEntity {
-    @Id @Basic @Column(name = EMAIL_COLUMN_NAME, nullable = false)
+    @Id @Basic @Column(name = EMAIL_COLUMN_NAME, nullable = false, unique = true)
     private String email;
     @Basic @Column(name = PASSWORD_COLUMN_NAME, nullable = false)
     private String password;
@@ -45,7 +44,7 @@ public class UserEntity {
     }
 
     public String getLastName() {
-        return lastName;
+        return lastName.toUpperCase();
     }
 
     public void setLastName(String lastName) {

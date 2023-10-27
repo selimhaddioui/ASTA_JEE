@@ -1,11 +1,9 @@
 package fr.efrei2023.asta.projet_asta.repository;
 
-
 import fr.efrei2023.asta.projet_asta.model.UserEntity;
 import fr.efrei2023.asta.projet_asta.utils.DatabaseConstants;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.*;
-
 
 import static fr.efrei2023.asta.projet_asta.utils.UserConstants.*;
 

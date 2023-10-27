@@ -6,6 +6,7 @@
 
     <persistence-unit name="ASTA_PU">
         <class>fr.efrei2023.asta.projet_asta.model.UserEntity</class>
+        <class>fr.efrei2023.asta.projet_asta.model.ApprenticeEntity</class>
         <properties>
             <!--            database configuration            -->
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

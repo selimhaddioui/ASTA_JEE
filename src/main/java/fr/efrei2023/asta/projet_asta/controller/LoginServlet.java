@@ -3,7 +3,7 @@ package fr.efrei2023.asta.projet_asta.controller;
 import java.io.*;
 
 import fr.efrei2023.asta.projet_asta.model.UserEntity;
-import fr.efrei2023.asta.projet_asta.service.ISignInService;
+import fr.efrei2023.asta.projet_asta.service.login.ILoginService;
 import fr.efrei2023.asta.projet_asta.utils.TutorConstants;
 import fr.efrei2023.asta.projet_asta.utils.UserConstants;
 import jakarta.inject.Inject;
@@ -16,7 +16,7 @@ import static fr.efrei2023.asta.projet_asta.utils.LoginConstants.*;
 @WebServlet(name = LOGIN_SERVLET_NAME, value = LOGIN_SERVLET_PATH)
 public class LoginServlet extends HttpServlet {
     @Inject
-    private ISignInService _signInService;
+    private ILoginService _loginService;
 
     /**
      * Get method that will redirect authenticated users to their home page and non-authenticated users to sign in view.
@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
      * Otherwise they are back to sign in page with an errorMessage attribute filled.
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        UserEntity user = _signInService.signIn(request.getParameter(EMAIL_FIELD), request.getParameter(PASSWORD_FIELD));
+        UserEntity user = _loginService.login(request.getParameter(EMAIL_FIELD), request.getParameter(PASSWORD_FIELD));
         if (user == null) {
             request.setAttribute(ATTRIBUTE_NAME_FOR_ERROR_MESSAGE, ATTRIBUTE_VALUE_FOR_ERROR_MESSAGE_WHEN_WRONG_CREDENTIAL);
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
