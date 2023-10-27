@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import static fr.efrei2023.asta.projet_asta.utils.UserConstants.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(
         name = USER_TABLE_NAME,
         schema = DatabaseConstants.USER_SCHEMA_NAME

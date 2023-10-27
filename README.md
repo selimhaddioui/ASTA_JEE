@@ -13,10 +13,10 @@ Connexion via les logins suivants :
 
 - Apprenti :  
   - Email : student1@efrei.net  
-  - Mot de passe : student  
+  - Mot de passe : mdp  
 
 - Tuteur :
   - Email : tutor@efrei.net
-  - Mot de passe : tutor
+  - Mot de passe : mdp
 
 Pour plus de logins consulter [insert_asta.sql](./src/main/resources/META-INF/sql/insert_asta.sql).
