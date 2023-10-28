@@ -25,7 +25,7 @@ public class ApprenticeSessionBean {
     }
 
     public boolean createApprentice(String tutorEmail, ApprenticeEntity apprentice) {
-//        requete = entityManager.createNamedQuery(INSERT_APPRENTICE_QUERY_NAME);
+        requete = entityManager.createNamedQuery(INSERT_APPRENTICE_QUERY_NAME);
 //        requete.setParameter(UserConstants.EMAIL_COLUMN_NAME, apprentice.getEmail());
 //        requete.setParameter(PROGRAM_COLUMN_NAME, apprentice.getProgram());
 //        requete.setParameter(MAJOR_COLUMN_NAME, apprentice.getMajor());
@@ -36,7 +36,7 @@ public class ApprenticeSessionBean {
     }
 
     public boolean updateApprentice(ApprenticeEntity apprentice) {
-//        requete = entityManager.createNamedQuery(ARCHIVE_APPRENTICE_QUERY_NAME);
+        requete = entityManager.createNamedQuery(ARCHIVE_APPRENTICE_QUERY_NAME);
         // #TODO
         return requete.executeUpdate() == 1;
     }

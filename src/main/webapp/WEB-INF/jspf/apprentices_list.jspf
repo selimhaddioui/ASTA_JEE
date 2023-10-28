@@ -18,12 +18,16 @@
         <th scope="col">Adresse Electronique</th>
         <th scope="col">Téléphone</th>
         <th scope="col">Entreprise</th>
+        <th scope="col">Archive</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
         <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${apprentices}" var="apprentice">
+    <c:forEach items="${apprentices}" var="apprentice" varStatus="loop">
         <tr class="table-warning">
+                <%--            <form action="<c:url value="/tutor/updateApprentice/${apprentice.email}" />" method="get">--%>
             <th>${apprentice.firstName}</th>
             <th>${apprentice.lastName}</th>
             <td>${apprentice.program}</td>
@@ -32,10 +36,10 @@
             <td>${apprentice.email}</td>
             <td>${apprentice.phoneNumber}</td>
             <td>${apprentice.company}</td>
-            <td>
-                <button type="button" class="btn btn-light">...</button>
+            <td>${apprentice.archived}</td>
+            <td><input class="form-control btn btn-light" value="Update" onclick="toggleFieldset('${loop.index}')"></td>
+            <td><input class="form-control btn btn-light" value="Archive" onclick="toggleFieldset('${loop.index}')">
             </td>
-
         </tr>
     </c:forEach>
     </tbody>

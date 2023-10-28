@@ -32,4 +32,6 @@ public final class ApprenticeConstants {
     public static final String INSERT_APPRENTICE_QUERY = "#TODO"; // #TODO
     public static final String ARCHIVE_APPRENTICE_QUERY_NAME = "archiveApprentice";
     public static final String ARCHIVE_APPRENTICE_QUERY = "UPDATE ApprenticeEntity SET archived = true WHERE email=:" + UserConstants.EMAIL_COLUMN_NAME;
+    public static final String UPDATE_APPRENTICE_QUERY_NAME = "updateApprentice";
+    public static final String UPDATE_APPRENTICE_QUERY = "#TODO";
 }
