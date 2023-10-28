@@ -27,7 +27,6 @@
     <tbody>
     <c:forEach items="${apprentices}" var="apprentice" varStatus="loop">
         <tr class="table-warning">
-                <%--            <form action="<c:url value="/tutor/updateApprentice/${apprentice.email}" />" method="get">--%>
             <th>${apprentice.firstName}</th>
             <th>${apprentice.lastName}</th>
             <td>${apprentice.program}</td>
@@ -37,9 +36,19 @@
             <td>${apprentice.phoneNumber}</td>
             <td>${apprentice.company}</td>
             <td>${apprentice.archived}</td>
-            <td><input class="form-control btn btn-light" value="Update" onclick="toggleFieldset('${loop.index}')"></td>
-            <td><input class="form-control btn btn-light" value="Archive" onclick="toggleFieldset('${loop.index}')">
+            <td>
+                <form action="<c:url value="/tutor/update" />" method="get">
+                    <input type="hidden" name="apprenticeEmail" value="${apprentice.email}"/>
+                    <input type="submit" class="form-control btn btn-light" value="Update">
+                </form>
             </td>
+            <td>
+                <form action="<c:url value="/tutor/archive" />" method="post">
+                    <input type="hidden" name="apprenticeEmail" value="${apprentice.email}"/>
+                    <input type="submit" class="form-control btn btn-light" value="Archive">
+                </form>
+            </td>
+
         </tr>
     </c:forEach>
     </tbody>
