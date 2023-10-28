@@ -21,10 +21,6 @@ public final class TutorConstants {
     public static final String REMARK_COLUMN_NAME = "Remarque";
 
     // Query
-    public static final String GET_USER_TUTOR_BY_EMAIL_QUERY_NAME = "getUserTutorByEmail";
-    public static final String GET_USER_TUTOR_BY_EMAIL_QUERY =
-            "SELECT t FROM TutorEntity t " +
-                    "INNER JOIN UserEntity u " +
-                    "ON t.email=u.email " +
-                    "WHERE u.email = :" + UserConstants.EMAIL_COLUMN_NAME;
+    public static final String GET_TUTOR_BY_EMAIL_QUERY_NAME = "getTutorByEmail";
+    public static final String GET_TUTOR_BY_EMAIL_QUERY = "SELECT t FROM TutorEntity t WHERE t.email = :" + UserConstants.EMAIL_COLUMN_NAME;
 }

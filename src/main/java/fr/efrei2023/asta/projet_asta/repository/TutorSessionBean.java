@@ -17,7 +17,7 @@ public class TutorSessionBean {
     private EntityManager entityManager;
 
     public TutorEntity getTutorByEmailOrNull(String email) {
-        Query requete = entityManager.createNamedQuery(TutorConstants.GET_USER_TUTOR_BY_EMAIL_QUERY_NAME);
+        Query requete = entityManager.createNamedQuery(TutorConstants.GET_TUTOR_BY_EMAIL_QUERY_NAME);
         requete.setParameter(UserConstants.EMAIL_COLUMN_NAME, email);
         try {
             return (TutorEntity) requete.getSingleResult();

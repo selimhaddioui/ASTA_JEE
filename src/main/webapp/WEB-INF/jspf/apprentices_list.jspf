@@ -29,6 +29,7 @@
             <td>${apprentice.program}</td>
             <td>${apprentice.major}</td>
             <td>${apprentice.year}</td>
+            <td>${apprentice.email}</td>
             <td>${apprentice.phoneNumber}</td>
             <td>${apprentice.company}</td>
             <td>

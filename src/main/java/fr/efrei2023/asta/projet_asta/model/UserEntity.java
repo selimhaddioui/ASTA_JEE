@@ -6,22 +6,21 @@ import jakarta.persistence.*;
 import static fr.efrei2023.asta.projet_asta.utils.UserConstants.*;
 
 @Entity
+@Table(name = TABLE_NAME, schema = DatabaseConstants.SCHEMA_NAME)
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(
-        name = TABLE_NAME,
-        schema = DatabaseConstants.SCHEMA_NAME
-)
 @NamedQueries({@NamedQuery(name = GET_USER_BY_EMAIL_QUERY_NAME, query = GET_USER_BY_EMAIL_QUERY)})
 public class UserEntity {
-    @Id @Basic @Column(name = EMAIL_COLUMN_NAME, nullable = false, unique = true)
+    @Id
+    @Column(name = EMAIL_COLUMN_NAME, nullable = false, unique = true)
     private String email;
-    @Basic @Column(name = PASSWORD_COLUMN_NAME, nullable = false)
+    @GeneratedValue
+    @Column(name = PASSWORD_COLUMN_NAME, nullable = false)
     private String password;
-    @Basic @Column(name = FIRSTNAME_COLUMN_NAME)
+    @Column(name = FIRSTNAME_COLUMN_NAME)
     private String firstName;
-    @Basic @Column(name = LASTNAME_COLUMN_NAME)
+    @Column(name = LASTNAME_COLUMN_NAME)
     private String lastName;
-    @Basic @Column(name = PHONE_NUMBER_COLUMN_NAME)
+    @Column(name = PHONE_NUMBER_COLUMN_NAME)
     private String phoneNumber;
 
     public UserEntity() {
@@ -39,24 +38,12 @@ public class UserEntity {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName.toUpperCase();
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public boolean isPasswordCorrect(String password) {
