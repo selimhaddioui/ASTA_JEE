@@ -2,10 +2,6 @@ package fr.efrei2023.asta.projet_asta.utils;
 
 public final class ApprenticeConstants {
     // Attribute
-    public static final String STATUS_QUERY_ATTRIBUTE_NAME = "statusQueryMessage";
-    public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_CREATE_SUCCESS = "Création réussie !";
-    public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_UPDATE_SUCCESS = "Modification réussie !";
-    public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_ARCHIVE_SUCCESS = "Archivage réussi !";
     public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_CREATE_FAIL = "Echec de la création";
     public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_UPDATE_FAIL = "Echec de la modification";
     public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_ARCHIVE_FAIL = "Echec de l'archivage";
@@ -32,6 +28,4 @@ public final class ApprenticeConstants {
     public static final String INSERT_APPRENTICE_QUERY = "#TODO"; // #TODO
     public static final String ARCHIVE_APPRENTICE_QUERY_NAME = "archiveApprentice";
     public static final String ARCHIVE_APPRENTICE_QUERY = "UPDATE ApprenticeEntity SET archived = true WHERE email=:" + UserConstants.EMAIL_COLUMN_NAME;
-    public static final String UPDATE_APPRENTICE_QUERY_NAME = "updateApprentice";
-    public static final String UPDATE_APPRENTICE_QUERY = "#TODO";
 }

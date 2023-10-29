@@ -17,7 +17,7 @@ public class LogoutServlet extends ServletRequireUser {
     /**
      * Get method that will invalidate clients sessions and redirect them to login servlet.
      */
-    public void doUserGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void processUserRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.getSession().invalidate();
         response.sendRedirect(request.getContextPath() + LoginConstants.SERVLET_PATH);
     }

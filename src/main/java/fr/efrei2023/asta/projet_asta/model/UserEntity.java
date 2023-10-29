@@ -23,7 +23,14 @@ public class UserEntity {
     @Column(name = PHONE_NUMBER_COLUMN_NAME)
     private String phoneNumber;
 
-    public UserEntity() {
+    public UserEntity(){
+
+    }
+    public UserEntity(String email, String firstName, String lastName, String phoneNumber) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {

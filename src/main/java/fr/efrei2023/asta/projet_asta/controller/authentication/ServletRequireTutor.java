@@ -11,19 +11,24 @@ import java.io.IOException;
 public abstract class ServletRequireTutor extends ServletRequireUser {
     private TutorEntity sessionTutor;
     @Override
-    public final void doUserGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public final void processUserRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (super.getSessionUser() instanceof TutorEntity) {
-            sessionTutor = (TutorEntity) super.getSessionUser();
-            doTutorGet(request, response);
+            loadSessionTutor(request);
+            processTutorRequest(request, response);
         } else {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.sendRedirect(RedirectConstants.SERVLET_PATH);
         }
     }
 
-    protected abstract void doTutorGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+    protected abstract void processTutorRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
     protected final TutorEntity getSessionTutor() {
         return sessionTutor;
+    }
+
+    protected final void loadSessionTutor(HttpServletRequest request){
+        loadSessionUser(request);
+        sessionTutor = (TutorEntity) super.getSessionUser();
     }
 }

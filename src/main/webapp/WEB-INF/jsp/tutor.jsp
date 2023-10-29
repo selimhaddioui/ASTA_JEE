@@ -38,6 +38,7 @@
                     </ul>
                 </div>
             </div>
+            <div>${statusQueryMessage}</div>
             <c:choose>
                 <c:when test="${apprentices.isEmpty()}">
                     <p>${emptyListMessage}</p>

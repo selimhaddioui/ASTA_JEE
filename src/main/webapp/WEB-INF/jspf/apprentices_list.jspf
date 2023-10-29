@@ -37,15 +37,15 @@
             <td>${apprentice.company}</td>
             <td>${apprentice.archived}</td>
             <td>
-                <form action="<c:url value="/tutor/update" />" method="get">
+                <form action="<c:url value="/tutor" />" method="post">
                     <input type="hidden" name="apprenticeEmail" value="${apprentice.email}"/>
-                    <input type="submit" class="form-control btn btn-light" value="Update">
+                    <input type="submit" class="form-control btn btn-light" name="action" value="update">
                 </form>
             </td>
             <td>
-                <form action="<c:url value="/tutor/archive" />" method="post">
+                <form action="<c:url value="/tutor" />" method="post">
                     <input type="hidden" name="apprenticeEmail" value="${apprentice.email}"/>
-                    <input type="submit" class="form-control btn btn-light" value="Archive">
+                    <input type="submit" class="form-control btn btn-light" name="action" value="archive">
                 </form>
             </td>
 

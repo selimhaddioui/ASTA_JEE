@@ -24,6 +24,24 @@ public class ApprenticeEntity extends UserEntity {
     @Column(name = ARCHIVED_COLUMN_NAME)
     private boolean archived;
 
+    public ApprenticeEntity() {
+    }
+
+    public ApprenticeEntity(String email,
+                            String firstName,
+                            String lastName,
+                            String phoneNumber,
+                            String program,
+                            String major,
+                            String year,
+                            boolean archived) {
+        super(email, firstName, lastName, phoneNumber);
+        this.program = program;
+        this.major = major;
+        this.year = year;
+        this.archived = archived;
+    }
+
     public String getCompany() {
         return "NotImplementedYet";
     }
@@ -44,4 +62,7 @@ public class ApprenticeEntity extends UserEntity {
         return archived;
     }
 
+    public void setArchived(boolean isArchived) {
+        this.archived = isArchived;
+    }
 }

@@ -17,7 +17,7 @@ import static fr.efrei2023.asta.projet_asta.utils.RedirectConstants.*;
 @WebServlet(name = SERVLET_NAME, value = SERVLET_PATH)
 public class RedirectServlet extends ServletRequireUser {
     @Override
-    public void doUserGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void processUserRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         UserEntity sessionUser = super.getSessionUser();
         if (sessionUser instanceof TutorEntity) {
             response.sendRedirect(request.getContextPath() + TutorConstants.SERVLET_PATH);

@@ -14,24 +14,56 @@ public class ApprenticeService implements IApprenticeService {
     private ApprenticeSessionBean _apprenticeSessionBean;
 
     @Override
-    public void createApprentice(String tutorMail, ApprenticeEntity apprentice) throws SQLException {
-        if (tutorMail == null || tutorMail.isEmpty() || apprentice == null
-                || apprentice.getEmail() == null || apprentice.getEmail().isEmpty()
-                || !_apprenticeSessionBean.createApprentice(tutorMail, apprentice))
+    public void createApprentice(String tutorEmail,
+                                 String apprenticeEmail,
+                                 String apprenticeFirstName,
+                                 String apprenticeLastName,
+                                 String apprenticeProgram,
+                                 String apprenticeMajor,
+                                 String apprenticeYear,
+                                 String apprenticePhoneNumber) throws SQLException {
+        if (tutorEmail == null || tutorEmail.isEmpty() || apprenticeEmail == null || apprenticeEmail.isEmpty()
+                || !_apprenticeSessionBean.createApprentice(tutorEmail, apprenticeEmail, apprenticeFirstName, apprenticeLastName,
+                apprenticePhoneNumber, apprenticeProgram, apprenticeMajor, apprenticeYear)
+        )
             throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_CREATE_FAIL);
     }
 
     @Override
-    public void updateApprentice(ApprenticeEntity apprentice) throws SQLException {
-        if (apprentice == null || apprentice.getEmail() == null || apprentice.getEmail().isEmpty()
-                || !_apprenticeSessionBean.updateApprentice(apprentice))
+    public void updateApprentice(String apprenticeEmail,
+                                 String apprenticeFirstName,
+                                 String apprenticeLastName,
+                                 String apprenticeProgram,
+                                 String apprenticeMajor,
+                                 String apprenticeYear,
+                                 String apprenticePhoneNumber,
+                                 boolean apprenticeArchived) throws SQLException {
+        ApprenticeEntity apprentice = new ApprenticeEntity(
+                apprenticeEmail,
+                apprenticeFirstName,
+                apprenticeLastName,
+                apprenticePhoneNumber,
+                apprenticeProgram,
+                apprenticeMajor,
+                apprenticeYear,
+                apprenticeArchived
+        );
+        try {
+            _apprenticeSessionBean.updateApprentice(apprentice);
+        } catch (IllegalArgumentException e) {
             throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_UPDATE_FAIL);
+        }
     }
 
     @Override
-    public void archiveApprentice(String apprenticeMail) throws SQLException {
-        if (apprenticeMail == null || apprenticeMail.isEmpty()
-                || !_apprenticeSessionBean.archiveApprentice(apprenticeMail))
+    public void archiveApprentice(String apprenticeEmail) throws SQLException {
+        try {
+            ApprenticeEntity apprentice = _apprenticeSessionBean.getApprenticeByEmailOrNull(apprenticeEmail);
+            if(apprentice.isArchived()) throw new Exception();
+            apprentice.setArchived(true);
+            _apprenticeSessionBean.updateApprentice(apprentice);
+        } catch (Exception e) {
             throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_ARCHIVE_FAIL);
+        }
     }
 }

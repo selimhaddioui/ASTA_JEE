@@ -11,19 +11,19 @@ import java.io.IOException;
 public abstract class ServletRequireApprentice extends ServletRequireUser {
     private ApprenticeEntity sessionApprentice;
     @Override
-    public final void doUserGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public final void processUserRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (super.getSessionUser() instanceof ApprenticeEntity) {
             sessionApprentice = (ApprenticeEntity) super.getSessionUser();
-            doApprenticeGet(request, response);
+            processApprenticeRequest(request, response);
         } else {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.sendRedirect(RedirectConstants.SERVLET_PATH);
         }
     }
 
-    protected abstract void doApprenticeGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+    protected abstract void processApprenticeRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
-    protected final ApprenticeEntity getSessionTutor() {
+    protected final ApprenticeEntity getSessionApprentice() {
         return sessionApprentice;
     }
 }

@@ -29,7 +29,8 @@ public class LoginService implements ILoginService {
         throw new SQLException(LoginConstants.ERROR_MESSAGE_VALUE_WHEN_WRONG_CREDENTIAL);
     }
 
-    private UserEntity getUserFromApprenticeOrTutorSessionBeanOrNull(String email){
+    @Override
+    public UserEntity getUserFromApprenticeOrTutorSessionBeanOrNull(String email){
         UserEntity user = _tutorSessionBean.getTutorByEmailOrNull(email);
         return user == null
                 ? _apprenticeSessionBean.getApprenticeByEmailOrNull(email)

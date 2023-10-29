@@ -24,7 +24,14 @@ public class ApprenticeSessionBean {
         }
     }
 
-    public boolean createApprentice(String tutorEmail, ApprenticeEntity apprentice) {
+    public boolean createApprentice(String tutorEmail,
+                                    String apprenticeEmail,
+                                    String apprenticeFirstName,
+                                    String apprenticeLastName,
+                                    String apprenticeProgram,
+                                    String apprenticeMajor,
+                                    String apprenticeYear,
+                                    String apprenticePhoneNumber) {
         requete = entityManager.createNamedQuery(INSERT_APPRENTICE_QUERY_NAME);
 //        requete.setParameter(UserConstants.EMAIL_COLUMN_NAME, apprentice.getEmail());
 //        requete.setParameter(PROGRAM_COLUMN_NAME, apprentice.getProgram());
@@ -35,15 +42,7 @@ public class ApprenticeSessionBean {
         return requete.executeUpdate() == 1;
     }
 
-    public boolean updateApprentice(ApprenticeEntity apprentice) {
-        requete = entityManager.createNamedQuery(ARCHIVE_APPRENTICE_QUERY_NAME);
-        // #TODO
-        return requete.executeUpdate() == 1;
-    }
-
-    public boolean archiveApprentice(String apprenticeMail) {
-        requete = entityManager.createNamedQuery(ARCHIVE_APPRENTICE_QUERY_NAME);
-        requete.setParameter(UserConstants.EMAIL_COLUMN_NAME, apprenticeMail);
-        return requete.executeUpdate() == 1;
+    public void updateApprentice(ApprenticeEntity apprentice) {
+        entityManager.merge(apprentice);
     }
 }

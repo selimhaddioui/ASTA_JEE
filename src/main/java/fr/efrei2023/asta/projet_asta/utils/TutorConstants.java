@@ -2,9 +2,28 @@ package fr.efrei2023.asta.projet_asta.utils;
 
 public final class TutorConstants {
     // Attribute
+    public static final String ACTION_ATTRIBUTE_NAME = "action";
+    public static final String ACTION_ATTRIBUTE_VALUE_WHEN_CREATE = "create";
+    public static final String ACTION_ATTRIBUTE_VALUE_WHEN_UPDATE = "update";
+    public static final String ACTION_ATTRIBUTE_VALUE_WHEN_ARCHIVE = "archive";
+
+    public static final String STATUS_QUERY_ATTRIBUTE_NAME = "statusQueryMessage";
+    public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_CREATE_SUCCESS = "Création réussie !";
+    public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_UPDATE_SUCCESS = "Modification réussie !";
+    public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_ARCHIVE_SUCCESS = "Archivage réussi !";
     public static final String APPRENTICES_ATTRIBUTE_NAME = "apprentices";
     public static final String EMPTY_LIST_MESSAGE_ATTRIBUTE_NAME = "emptyListMessage";
     public static final String EMPTY_LIST_MESSAGE_ATTRIBUTE_VALUE = "La liste est vide. Ajoutez au moins un(e) apprenti(e)";
+
+    // Parameters
+    public static final String APPRENTICE_EMAIL_PARAMETER = "apprenticeEmail";
+    public static final String APPRENTICE_FIRSTNAME_PARAMETER = "apprenticeFirstName";
+    public static final String APPRENTICE_LASTNAME_PARAMETER = "apprenticeLastName";
+    public static final String APPRENTICE_PROGRAM_PARAMETER = "apprenticeProgram";
+    public static final String APPRENTICE_MAJOR_PARAMETER = "apprenticeMajor";
+    public static final String APPRENTICE_YEAR_PARAMETER = "apprenticeYear";
+    public static final String APPRENTICE_PHONE_NUMBER_PARAMETER = "apprenticePhoneNumber";
+    public static final String APPRENTICE_ARCHIVED_PARAMETER = "apprenticeArchived";
 
     // Servlet
     public static final String SERVLET_NAME = "tutor";
