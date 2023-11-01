@@ -40,21 +40,19 @@
             </div>
             <form action="<c:url value="/login" />" method="post">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Nom d'utilisateur</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           name="fieldEmail" autofocus="">
+                    <label for="email" class="form-label">Nom d'utilisateur</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="fieldEmail" autofocus required>
                     <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre email.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="fieldPassword">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="password" name="fieldPassword" required>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Retenir mes informations</label>
+                    <label class="form-check-label" for="check">Retenir mes informations</label>
+                    <input type="checkbox" class="form-check-input" id="check">
                 </div>
                 <input type="submit" name="action" value="Se connecter" class="btn btn-primary"/>
-                <!--<p>Vous n'avez pas de compte ? <a href="inscription.html">Inscrivez-vous</a></p>-->
             </form>
         </div>
     </div>

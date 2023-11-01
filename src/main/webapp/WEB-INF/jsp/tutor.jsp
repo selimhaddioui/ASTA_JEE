@@ -14,7 +14,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="<c:url value="/css/tutor.css" />"/>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -33,9 +35,12 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end w-auto">
                         <form action="<c:url value="/tutor" />" method="get">
-                            <li><input type="submit" class="form-control btn btn-light" name="filterArchive" value="Tous"></li>
-                            <li><input type="submit" class="form-control btn btn-light" name="filterArchive" value="Archivé"></li>
-                            <li><input type="submit" class="form-control btn btn-light" name="filterArchive" value="Non archivé"></li>
+                            <li><input type="submit" class="form-control btn btn-light" name="filterArchive"
+                                       value="Tous"></li>
+                            <li><input type="submit" class="form-control btn btn-light" name="filterArchive"
+                                       value="Archivé"></li>
+                            <li><input type="submit" class="form-control btn btn-light" name="filterArchive"
+                                       value="Non archivé"></li>
                         </form>
                     </ul>
                 </div>
@@ -49,9 +54,45 @@
                     <%@ include file="/WEB-INF/jspf/apprentices_list.jspf" %>
                 </c:otherwise>
             </c:choose>
-            <div class="text-center">
-                <button type="button" class="btn btn-secondary btn-lg mx-auto">Ajouter un apprenti</button>
-            </div>
+            <form action="<c:url value="/tutor" />" method="post">
+                <div class="form-group">
+                    <label for="email">Adresse Electronique:</label>
+                    <input type="email" id="email" name="apprenticeEmail" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName">Prénom:</label>
+                    <input type="text" id="firstName" name="apprenticeFirstName" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Nom:</label>
+                    <input type="text" id="lastName" name="apprenticeLastName" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="program">Programme:</label>
+                    <input type="text" id="program" name="apprenticeProgram" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="major">Majeure:</label>
+                    <input type="text" id="major" name="apprenticeMajor" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Année Académique:</label>
+                    <input type="number" id="year" name="apprenticeYear" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Téléphone:</label>
+                    <input type="tel" id="phoneNumber" name="apprenticePhoneNumber" class="form-control">
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-secondary btn-lg mx-auto" name="action" value="Ajouter un apprenti">
+                </div>
+            </form>
         </div>
     </div>
 </div>
