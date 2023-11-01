@@ -1,6 +1,6 @@
-package fr.efrei2023.asta.projet_asta.controller.log;
+package fr.efrei2023.asta.projet_asta.servlet.log;
 
-import fr.efrei2023.asta.projet_asta.controller.authentication.ServletRequireUser;
+import fr.efrei2023.asta.projet_asta.servlet.authentication.ServletRequireUser;
 import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
 import fr.efrei2023.asta.projet_asta.model.TutorEntity;
 import fr.efrei2023.asta.projet_asta.model.UserEntity;

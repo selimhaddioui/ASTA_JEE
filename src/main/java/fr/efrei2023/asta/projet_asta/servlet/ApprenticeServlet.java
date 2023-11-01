@@ -1,6 +1,6 @@
-package fr.efrei2023.asta.projet_asta.controller;
+package fr.efrei2023.asta.projet_asta.servlet;
 
-import fr.efrei2023.asta.projet_asta.controller.authentication.ServletRequireApprentice;
+import fr.efrei2023.asta.projet_asta.servlet.authentication.ServletRequireApprentice;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;

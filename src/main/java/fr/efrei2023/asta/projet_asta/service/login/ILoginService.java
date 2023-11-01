@@ -14,5 +14,5 @@ public interface ILoginService {
      * Get the user that have a matching login if it exist and the password is correct.
      * Otherwise throw an SQLException..
      */
-    UserEntity getUserFromApprenticeOrTutorSessionBeanOrNull(String email);
+    UserEntity getUserFromApprenticeOrTutorSessionBean(String email);
 }

@@ -1,4 +1,4 @@
-package fr.efrei2023.asta.projet_asta.controller.authentication;
+package fr.efrei2023.asta.projet_asta.servlet.authentication;
 
 import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
 import fr.efrei2023.asta.projet_asta.utils.RedirectConstants;

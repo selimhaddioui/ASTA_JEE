@@ -1,4 +1,4 @@
-package fr.efrei2023.asta.projet_asta.controller.log;
+package fr.efrei2023.asta.projet_asta.servlet.log;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import fr.efrei2023.asta.projet_asta.model.UserEntity;
 import fr.efrei2023.asta.projet_asta.service.login.ILoginService;
 import fr.efrei2023.asta.projet_asta.utils.RedirectConstants;
-import fr.efrei2023.asta.projet_asta.utils.TutorConstants;
 import fr.efrei2023.asta.projet_asta.utils.UserConstants;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;

@@ -1,4 +1,4 @@
-package fr.efrei2023.asta.projet_asta.controller.authentication;
+package fr.efrei2023.asta.projet_asta.servlet.authentication;
 
 import java.io.*;
 
@@ -38,7 +38,7 @@ public abstract class ServletRequireUser extends HttpServlet {
     }
 
     protected final void loadSessionUser(HttpServletRequest request){
-        sessionUser = _loginService.getUserFromApprenticeOrTutorSessionBeanOrNull(sessionUser.getEmail());
+        sessionUser = _loginService.getUserFromApprenticeOrTutorSessionBean(sessionUser.getEmail());
         request.getSession().setAttribute(UserConstants.USER_ATTRIBUTE_NAME, sessionUser);
     }
 

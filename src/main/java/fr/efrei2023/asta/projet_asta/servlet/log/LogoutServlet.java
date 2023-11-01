@@ -1,8 +1,7 @@
-package fr.efrei2023.asta.projet_asta.controller.log;
+package fr.efrei2023.asta.projet_asta.servlet.log;
 
-import fr.efrei2023.asta.projet_asta.controller.authentication.ServletRequireUser;
+import fr.efrei2023.asta.projet_asta.servlet.authentication.ServletRequireUser;
 import fr.efrei2023.asta.projet_asta.utils.LoginConstants;
-import fr.efrei2023.asta.projet_asta.utils.RedirectConstants;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

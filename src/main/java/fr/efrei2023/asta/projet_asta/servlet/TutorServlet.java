@@ -1,11 +1,10 @@
-package fr.efrei2023.asta.projet_asta.controller;
+package fr.efrei2023.asta.projet_asta.servlet;
 
 import java.io.*;
 import java.sql.SQLException;
-import java.util.List;
 
-import fr.efrei2023.asta.projet_asta.controller.authentication.ServletRequireTutor;
-import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
+import fr.efrei2023.asta.projet_asta.filter.ApprenticeFilter;
+import fr.efrei2023.asta.projet_asta.servlet.authentication.ServletRequireTutor;
 import fr.efrei2023.asta.projet_asta.service.apprentice.IApprenticeService;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
@@ -84,10 +83,14 @@ public class TutorServlet extends ServletRequireTutor {
     }
 
     protected void forwardTutorHomePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<ApprenticeEntity> apprentices = super.getSessionTutor().getApprentices();
-        if (apprentices.isEmpty())
-            request.setAttribute(EMPTY_LIST_MESSAGE_ATTRIBUTE_NAME, EMPTY_LIST_MESSAGE_ATTRIBUTE_VALUE);
+        var apprentices = getSessionTutor().getApprentices();
+        if (apprentices == null || apprentices.isEmpty())
+            request.setAttribute(EMPTY_LIST_MESSAGE_ATTRIBUTE_NAME, EMPTY_LIST_MESSAGE_ATTRIBUTE_VALUE_WHEN_TUTOR_HAVE_NO_APPRENTICE);
+        apprentices = ApprenticeFilter.applyFromRequestFilters(apprentices, request);
+        if (apprentices == null || apprentices.isEmpty())
+            request.setAttribute(EMPTY_LIST_MESSAGE_ATTRIBUTE_NAME, EMPTY_LIST_MESSAGE_ATTRIBUTE_VALUE_WHEN_FILTER_MATCH_NO_APPRENTICE);
         request.setAttribute(APPRENTICES_ATTRIBUTE_NAME, apprentices);
         request.getRequestDispatcher(VIEW_PATH).forward(request, response);
+
     }
 }
