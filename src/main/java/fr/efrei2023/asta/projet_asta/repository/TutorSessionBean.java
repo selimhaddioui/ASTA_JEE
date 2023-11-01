@@ -13,12 +13,12 @@ import jakarta.persistence.Query;
 
 @Stateless
 public class TutorSessionBean {
-    @PersistenceContext(unitName = DatabaseConstants.PERSISTENCE_UNIT_NAME)
+    @PersistenceContext(unitName = DatabaseConstants.PERSISTENCE_UNIT)
     private EntityManager entityManager;
 
     public TutorEntity getTutorByEmailOrNull(String email) {
-        Query requete = entityManager.createNamedQuery(TutorConstants.GET_TUTOR_BY_EMAIL_QUERY_NAME);
-        requete.setParameter(UserConstants.EMAIL_COLUMN_NAME, email);
+        var requete = entityManager.createNamedQuery(TutorConstants.GET_TUTOR_BY_EMAIL_QUERY_NAME);
+        requete.setParameter(UserConstants.EMAIL_COLUMN, email);
         try {
             return (TutorEntity) requete.getSingleResult();
         } catch (NoResultException e) {

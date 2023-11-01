@@ -28,7 +28,7 @@ public abstract class ServletRequireUser extends HttpServlet {
      * Otherwise, we forward to the sign-in view.
      */
     public final void processSecureRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        sessionUser = (UserEntity) request.getSession().getAttribute(UserConstants.USER_ATTRIBUTE_NAME);
+        sessionUser = (UserEntity) request.getSession().getAttribute(UserConstants.USER_ATTRIBUTE);
         if (sessionUser == null) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             request.getRequestDispatcher(LoginConstants.VIEW_PATH).forward(request, response);
@@ -39,7 +39,7 @@ public abstract class ServletRequireUser extends HttpServlet {
 
     protected final void loadSessionUser(HttpServletRequest request){
         sessionUser = _loginService.getUserFromApprenticeOrTutorSessionBean(sessionUser.getEmail());
-        request.getSession().setAttribute(UserConstants.USER_ATTRIBUTE_NAME, sessionUser);
+        request.getSession().setAttribute(UserConstants.USER_ATTRIBUTE, sessionUser);
     }
 
     /**

@@ -9,15 +9,15 @@ import java.util.List;
 import static fr.efrei2023.asta.projet_asta.utils.TutorConstants.*;
 
 @Entity
-@Table(name = TABLE_NAME, schema = DatabaseConstants.SCHEMA_NAME)
+@Table(name = TABLE, schema = DatabaseConstants.SCHEMA)
 @NamedQueries({@NamedQuery(name = GET_TUTOR_BY_EMAIL_QUERY_NAME, query = GET_TUTOR_BY_EMAIL_QUERY)})
 public class TutorEntity extends UserEntity {
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = ApprenticeConstants.TUTOR_COLUMN_NAME)
+    @JoinColumn(name = ApprenticeConstants.TUTOR_COLUMN)
     List<ApprenticeEntity> apprentices;
-    @Column(name = JOB_COLUMN_NAME)
+    @Column(name = JOB_COLUMN)
     private String job;
-    @Column(name = REMARK_COLUMN_NAME)
+    @Column(name = REMARK_COLUMN)
     private String remark;
 
     public List<ApprenticeEntity> getApprentices() {

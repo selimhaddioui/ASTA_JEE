@@ -6,21 +6,21 @@ import jakarta.persistence.*;
 import static fr.efrei2023.asta.projet_asta.utils.UserConstants.*;
 
 @Entity
-@Table(name = TABLE_NAME, schema = DatabaseConstants.SCHEMA_NAME)
+@Table(name = TABLE, schema = DatabaseConstants.SCHEMA)
 @Inheritance(strategy = InheritanceType.JOINED)
 @NamedQueries({@NamedQuery(name = GET_USER_BY_EMAIL_QUERY_NAME, query = GET_USER_BY_EMAIL_QUERY)})
 public class UserEntity {
     @Id
-    @Column(name = EMAIL_COLUMN_NAME, nullable = false, unique = true)
+    @Column(name = EMAIL_COLUMN, nullable = false, unique = true)
     private String email;
     @GeneratedValue
-    @Column(name = PASSWORD_COLUMN_NAME, nullable = false)
+    @Column(name = PASSWORD_COLUMN, nullable = false)
     private String password;
-    @Column(name = FIRSTNAME_COLUMN_NAME)
+    @Column(name = FIRSTNAME_COLUMN)
     private String firstName;
-    @Column(name = LASTNAME_COLUMN_NAME)
+    @Column(name = LASTNAME_COLUMN)
     private String lastName;
-    @Column(name = PHONE_NUMBER_COLUMN_NAME)
+    @Column(name = PHONE_NUMBER_COLUMN)
     private String phoneNumber;
 
     public UserEntity(){

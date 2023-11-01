@@ -32,9 +32,11 @@
                         Filtrer
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end w-auto">
-                        <li><a class="dropdown-item" href="#">Tous</a></li>
-                        <li><a class="dropdown-item" href="#">Archivé</a></li>
-                        <li><a class="dropdown-item" href="#">Non archivé</a></li>
+                        <form action="<c:url value="/tutor" />" method="get">
+                            <li><input type="submit" class="form-control btn btn-light" name="filterArchive" value="Tous"></li>
+                            <li><input type="submit" class="form-control btn btn-light" name="filterArchive" value="Archivé"></li>
+                            <li><input type="submit" class="form-control btn btn-light" name="filterArchive" value="Non archivé"></li>
+                        </form>
                     </ul>
                 </div>
             </div>

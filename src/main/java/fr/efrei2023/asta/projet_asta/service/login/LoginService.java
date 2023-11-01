@@ -20,10 +20,10 @@ public class LoginService implements ILoginService {
     public UserEntity login(String login, String password) throws SQLException {
         if (login == null || login.isEmpty() || password == null || password.isEmpty())
             throw new SQLException(LoginConstants.ERROR_MESSAGE_VALUE_WHEN_WRONG_CREDENTIAL);
-        UserEntity user = getUserFromApprenticeOrTutorSessionBean(login);
+        var user = getUserFromApprenticeOrTutorSessionBean(login);
         if (user != null && user.isPasswordCorrect(password))
             return user;
-        UserEntity corruptedUser = _userSessionBean.getUserByEmailOrNull(login);
+        var corruptedUser = _userSessionBean.getUserByEmailOrNull(login);
         if (user == null && corruptedUser != null && corruptedUser.isPasswordCorrect(password))
             throw new SQLException(LoginConstants.ERROR_MESSAGE_VALUE_WHEN_USER_IS_NEITHER_APPRENTICE_OR_TUTOR);
         throw new SQLException(LoginConstants.ERROR_MESSAGE_VALUE_WHEN_WRONG_CREDENTIAL);
@@ -31,7 +31,7 @@ public class LoginService implements ILoginService {
 
     @Override
     public UserEntity getUserFromApprenticeOrTutorSessionBean(String email){
-        UserEntity user = _tutorSessionBean.getTutorByEmailOrNull(email);
+        var user = _tutorSessionBean.getTutorByEmailOrNull(email);
         return user == null
                 ? _apprenticeSessionBean.getApprenticeByEmailOrNull(email)
                 : user;

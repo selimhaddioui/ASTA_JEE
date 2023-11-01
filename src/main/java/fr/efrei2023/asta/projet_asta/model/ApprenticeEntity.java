@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import static fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants.*;
 
 @Entity
-@Table(name = TABLE_NAME, schema = DatabaseConstants.SCHEMA_NAME)
+@Table(name = TABLE, schema = DatabaseConstants.SCHEMA)
 @NamedQueries(
         {
                 @NamedQuery(name = GET_APPRENTICE_BY_EMAIL_QUERY_NAME, query = GET_APPRENTICE_BY_EMAIL_QUERY),
@@ -15,13 +15,13 @@ import static fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants.*;
         }
 )
 public class ApprenticeEntity extends UserEntity {
-    @Column(name = PROGRAM_COLUMN_NAME)
+    @Column(name = PROGRAM_COLUMN)
     private String program;
-    @Column(name = MAJOR_COLUMN_NAME)
+    @Column(name = MAJOR_COLUMN)
     private String major;
-    @Column(name = YEAR_COLUMN_NAME)
+    @Column(name = YEAR_COLUMN)
     private String year;
-    @Column(name = ARCHIVED_COLUMN_NAME)
+    @Column(name = ARCHIVED_COLUMN)
     private boolean archived;
 
     public ApprenticeEntity() {

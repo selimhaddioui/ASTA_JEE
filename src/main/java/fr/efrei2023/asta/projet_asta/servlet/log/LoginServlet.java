@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
      * Get method that will redirect authenticated users to their home page and non-authenticated users to sign in view.
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if (request.getSession().getAttribute(UserConstants.USER_ATTRIBUTE_NAME) != null) {
+        if (request.getSession().getAttribute(UserConstants.USER_ATTRIBUTE) != null) {
             response.sendRedirect(request.getContextPath() + RedirectConstants.SERVLET_PATH);
         } else {
             request.getRequestDispatcher(VIEW_PATH).forward(request, response);
@@ -37,11 +37,11 @@ public class LoginServlet extends HttpServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try{
-            UserEntity user = _loginService.login(request.getParameter(EMAIL_FIELD), request.getParameter(PASSWORD_FIELD));
-            request.getSession().setAttribute(UserConstants.USER_ATTRIBUTE_NAME, user);
+            var user = _loginService.login(request.getParameter(EMAIL_FIELD), request.getParameter(PASSWORD_FIELD));
+            request.getSession().setAttribute(UserConstants.USER_ATTRIBUTE, user);
             response.sendRedirect(request.getContextPath() + RedirectConstants.SERVLET_PATH);
         }catch (SQLException e){
-            request.setAttribute(ERROR_MESSAGE_ATTRIBUTE_NAME, e.getMessage());
+            request.setAttribute(ERROR_MESSAGE_ATTRIBUTE, e.getMessage());
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             request.getRequestDispatcher(VIEW_PATH).forward(request, response);
         }

@@ -8,12 +8,12 @@ import jakarta.persistence.*;
 
 @Stateless
 public class UserSessionBean {
-    @PersistenceContext(unitName = DatabaseConstants.PERSISTENCE_UNIT_NAME)
+    @PersistenceContext(unitName = DatabaseConstants.PERSISTENCE_UNIT)
     private EntityManager entityManager;
 
     public UserEntity getUserByEmailOrNull(String email) {
-        Query requete = entityManager.createNamedQuery(UserConstants.GET_USER_BY_EMAIL_QUERY_NAME);
-        requete.setParameter(UserConstants.EMAIL_COLUMN_NAME, email);
+        var requete = entityManager.createNamedQuery(UserConstants.GET_USER_BY_EMAIL_QUERY_NAME);
+        requete.setParameter(UserConstants.EMAIL_COLUMN, email);
         try {
             return (UserEntity) requete.getSingleResult();
         } catch (NoResultException e) {

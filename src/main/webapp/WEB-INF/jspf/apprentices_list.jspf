@@ -26,7 +26,11 @@
     </thead>
     <tbody>
     <c:forEach items="${apprentices}" var="apprentice" varStatus="loop">
-        <tr class="table-warning">
+        <tr <c:choose>
+            <c:when test="${apprentice.isArchived()}"> class="table-warning" </c:when>
+            <c:otherwise> class="table-secondary" </c:otherwise>
+            </c:choose>>
+
             <th>${apprentice.firstName}</th>
             <th>${apprentice.lastName}</th>
             <td>${apprentice.program}</td>
@@ -40,15 +44,11 @@
                 <form action="<c:url value="/tutor" />" method="post">
                     <input type="hidden" name="apprenticeEmail" value="${apprentice.email}"/>
                     <input type="submit" class="form-control btn btn-light" name="action" value="update">
+                    <c:if test="${!apprentice.isArchived()}">
+                        <input type="submit" class="form-control btn btn-light" name="action" value="archive">
+                    </c:if>
                 </form>
             </td>
-            <td>
-                <form action="<c:url value="/tutor" />" method="post">
-                    <input type="hidden" name="apprenticeEmail" value="${apprentice.email}"/>
-                    <input type="submit" class="form-control btn btn-light" name="action" value="archive">
-                </form>
-            </td>
-
         </tr>
     </c:forEach>
     </tbody>

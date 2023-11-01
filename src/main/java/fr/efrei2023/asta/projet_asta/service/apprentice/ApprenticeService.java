@@ -26,7 +26,7 @@ public class ApprenticeService implements IApprenticeService {
                 || !_apprenticeSessionBean.createApprentice(tutorEmail, apprenticeEmail, apprenticeFirstName, apprenticeLastName,
                 apprenticePhoneNumber, apprenticeProgram, apprenticeMajor, apprenticeYear)
         )
-            throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_CREATE_FAIL);
+            throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_CREATE_FAIL);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ApprenticeService implements IApprenticeService {
                                  String apprenticeYear,
                                  String apprenticePhoneNumber,
                                  boolean apprenticeArchived) throws SQLException {
-        ApprenticeEntity apprentice = new ApprenticeEntity(
+        var apprentice = new ApprenticeEntity(
                 apprenticeEmail,
                 apprenticeFirstName,
                 apprenticeLastName,
@@ -51,19 +51,20 @@ public class ApprenticeService implements IApprenticeService {
         try {
             _apprenticeSessionBean.updateApprentice(apprentice);
         } catch (IllegalArgumentException e) {
-            throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_UPDATE_FAIL);
+            throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_UPDATE_FAIL);
         }
     }
 
     @Override
     public void archiveApprentice(String apprenticeEmail) throws SQLException {
         try {
-            ApprenticeEntity apprentice = _apprenticeSessionBean.getApprenticeByEmailOrNull(apprenticeEmail);
-            if(apprentice.isArchived()) throw new Exception();
+            var apprentice = _apprenticeSessionBean.getApprenticeByEmailOrNull(apprenticeEmail);
+            if(apprentice.isArchived())
+                throw new Exception();
             apprentice.setArchived(true);
             _apprenticeSessionBean.updateApprentice(apprentice);
         } catch (Exception e) {
-            throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_ARCHIVE_FAIL);
+            throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_ARCHIVE_FAIL);
         }
     }
 }

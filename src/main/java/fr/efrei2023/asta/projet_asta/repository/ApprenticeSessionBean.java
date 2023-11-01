@@ -10,13 +10,13 @@ import static fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants.*;
 
 @Stateless
 public class ApprenticeSessionBean {
-    @PersistenceContext(unitName = DatabaseConstants.PERSISTENCE_UNIT_NAME)
+    @PersistenceContext(unitName = DatabaseConstants.PERSISTENCE_UNIT)
     private EntityManager entityManager;
     private Query requete;
 
     public ApprenticeEntity getApprenticeByEmailOrNull(String email) {
         requete = entityManager.createNamedQuery(GET_APPRENTICE_BY_EMAIL_QUERY_NAME);
-        requete.setParameter(UserConstants.EMAIL_COLUMN_NAME, email);
+        requete.setParameter(UserConstants.EMAIL_COLUMN, email);
         try {
             return (ApprenticeEntity) requete.getSingleResult();
         } catch (NoResultException e) {
@@ -33,11 +33,11 @@ public class ApprenticeSessionBean {
                                     String apprenticeYear,
                                     String apprenticePhoneNumber) {
         requete = entityManager.createNamedQuery(INSERT_APPRENTICE_QUERY_NAME);
-//        requete.setParameter(UserConstants.EMAIL_COLUMN_NAME, apprentice.getEmail());
-//        requete.setParameter(PROGRAM_COLUMN_NAME, apprentice.getProgram());
-//        requete.setParameter(MAJOR_COLUMN_NAME, apprentice.getMajor());
-//        requete.setParameter(YEAR_COLUMN_NAME, apprentice.getYear());
-//        requete.setParameter(TUTOR_COLUMN_NAME,tutorEmail);
+//        requete.setParameter(UserConstants.EMAIL_COLUMN, apprentice.getEmail());
+//        requete.setParameter(PROGRAM_COLUMN, apprentice.getProgram());
+//        requete.setParameter(MAJOR_COLUMN, apprentice.getMajor());
+//        requete.setParameter(YEAR_COLUMN, apprentice.getYear());
+//        requete.setParameter(TUTOR_COLUMN,tutorEmail);
         // Ajouter tt les champs #TODO
         return requete.executeUpdate() == 1;
     }
