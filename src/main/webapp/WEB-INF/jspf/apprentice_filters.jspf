@@ -1,0 +1,65 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Minh-Tri NGUYEN, Ilyes TALAOUBRID, Lydia TERKI, Rayan MOUSSI, Sanaa ABDELLAH, Sélim HADDIOUI
+  Date: 22/10/2023
+  Time: 15:02
+--%>
+
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filterModal">Filtrer</button>
+
+<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="filterModalLabel">Filtres</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="<c:url value="/tutor" />" id="resetFilterForm" method="post">
+                </form>
+                <form action="<c:url value="/tutor" />" id="filterForm" method="post">
+
+                    <div class="form-group">
+                        <label for="firstName">Prénom:</label>
+                        <input type="text" id="firstName" name="firstNameFilter" class="form-control"
+                               value="${firstNameFilter}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Nom:</label>
+                        <input type="text" id="lastName" name="lastNameFilter" class="form-control"
+                               value="${lastNameFilter}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="program">Programme:</label>
+                        <input type="text" id="program" name="programFilter" class="form-control"
+                               value="${programFilter}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="major">Majeure:</label>
+                        <input type="text" id="major" name="majorFilter" class="form-control" value="${majorFilter}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Année Académique:</label>
+                        <input type="number" id="year" name="yearFilter" class="form-control" value="${yearFilter}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Téléphone:</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumberFilter" class="form-control"
+                               value="${phoneNumberFilter}">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-danger" form="resetFilterForm" name="action" value="Supprimer les filtres">
+                <input type="submit" class="btn btn-primary" form="filterForm" name="action" value="Filtrer">
+            </div>
+        </div>
+    </div>
+</div>

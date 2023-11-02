@@ -3,8 +3,8 @@ package fr.efrei2023.asta.projet_asta.utils;
 public final class TutorConstants {
     // Attribute
     public static final String ACTION_ATTRIBUTE = "action";
-    public static final String ACTION_ATTRIBUTE_VALUE_WHEN_CREATE = "Ajouter un apprenti";
-    public static final String ACTION_ATTRIBUTE_VALUE_WHEN_UPDATE = "update";
+    public static final String ACTION_ATTRIBUTE_VALUE_WHEN_CREATE_OR_UPDATE = "Ajouter ou modifier un apprenti";
+    public static final String ACTION_ATTRIBUTE_VALUE_WHEN_RESET_FILTERS = "Supprimer les filtres";
     public static final String ACTION_ATTRIBUTE_VALUE_WHEN_ARCHIVE = "archive";
     public static final String STATUS_QUERY_ATTRIBUTE = "statusQueryMessage";
     public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_CREATE_SUCCESS = "Création réussie !";

@@ -28,3 +28,8 @@ Connexion via les logins suivants :
   - Mot de passe : mdp  
 
 Pour plus de logins consulter [insert_asta.sql](./src/main/resources/META-INF/sql/insert_asta.sql).
+
+## Reste à faire
+
+2.b Bonus (+1) : Affichez au maximum 5 apprenti(e)s en gérant la pagination des données.  
+6 Recherche en tapant dans un champ l'une des données suivantes : entreprise, mot-clé de la mission.

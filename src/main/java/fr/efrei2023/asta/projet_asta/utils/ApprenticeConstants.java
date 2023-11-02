@@ -6,6 +6,7 @@ public final class ApprenticeConstants {
     public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_UPDATE_FAIL = "Echec de la modification";
     public static final String STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_ARCHIVE_FAIL = "Echec de l'archivage";
     public static final String APPRENTICES_ATTRIBUTE = "apprentices";
+    public static final String SELECTED_APPRENTICE_ATTRIBUTE = "selectedApprentice";
 
     // Parameter
     public static final String EMAIL_PARAMETER = "apprenticeEmail";
@@ -18,10 +19,16 @@ public final class ApprenticeConstants {
     public static final String ARCHIVED_PARAMETER = "apprenticeArchived";
 
     // Filters
-    public static final String FILTER_ARCHIVE_PARAMETER = "filterArchive";
+    public static final String FILTER_ARCHIVE_PARAMETER = "archiveFilter";
     public static final String FILTER_ARCHIVE_VALUE_ALL_APPRENTICES = "Tous";
     public static final String FILTER_ARCHIVE_VALUE_ONLY_ARCHIVED_APPRENTICES = "Archivé";
     public static final String FILTER_ARCHIVE_VALUE_APPRENTICES_NOT_ARCHIVED = "Non archivé";
+    public static final String FILTER_FIRSTNAME_PARAMETER = "firstNameFilter";
+    public static final String FILTER_LASTNAME_PARAMETER = "lastNameFilter";
+    public static final String FILTER_PROGRAM_PARAMETER = "programFilter";
+    public static final String FILTER_MAJOR_PARAMETER = "majorFilter";
+    public static final String FILTER_YEAR_PARAMETER = "yearFilter";
+    public static final String FILTER_PHONE_NUMBER_PARAMETER = "phoneNumberFilter";
 
     // Servlet
     public static final String SERVLET_NAME = "apprenti";
@@ -42,8 +49,4 @@ public final class ApprenticeConstants {
     // Query
     public static final String GET_APPRENTICE_BY_EMAIL_QUERY_NAME = "getApprenticeByEmail";
     public static final String GET_APPRENTICE_BY_EMAIL_QUERY = "SELECT a FROM ApprenticeEntity a WHERE a.email = :" + UserConstants.EMAIL_COLUMN;
-    public static final String INSERT_APPRENTICE_QUERY_NAME = "insertApprentice";
-    public static final String INSERT_APPRENTICE_QUERY = "#TODO"; // #TODO
-    public static final String ARCHIVE_APPRENTICE_QUERY_NAME = "archiveApprentice";
-    public static final String ARCHIVE_APPRENTICE_QUERY = "UPDATE ApprenticeEntity SET archived = true WHERE email=:" + UserConstants.EMAIL_COLUMN;
 }

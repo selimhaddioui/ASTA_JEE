@@ -1,0 +1,70 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Minh-Tri NGUYEN, Ilyes TALAOUBRID, Lydia TERKI, Rayan MOUSSI, Sanaa ABDELLAH, Sélim HADDIOUI
+  Date: 22/10/2023
+  Time: 15:02
+--%>
+
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateApprenticeModal">Ajouter ou modifier un apprenti</button>
+
+<div class="modal fade" id="updateApprenticeModal" tabindex="-1" aria-labelledby="updateApprenticeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="updateApprenticeModalLabel">Ajouter ou modifier un apprenti</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addApprenticeForm" action="<c:url value="/tutor" />" method="post">
+                    <div class="form-group">
+                        <label for="email">Adresse Electronique:</label>
+                        <input type="email" id="email" name="apprenticeEmail" class="form-control" value="${selectedApprentice.email}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstName">Prénom:</label>
+                        <input type="text" id="firstName" name="apprenticeFirstName" class="form-control" value="${selectedApprentice.firstName}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Nom:</label>
+                        <input type="text" id="lastName" name="apprenticeLastName" class="form-control" value="${selectedApprentice.lastName}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="program">Programme:</label>
+                        <input type="text" id="program" name="apprenticeProgram" class="form-control" value="${selectedApprentice.program}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="major">Majeure:</label>
+                        <input type="text" id="major" name="apprenticeMajor" class="form-control" value="${selectedApprentice.major}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Année Académique:</label>
+                        <input type="number" id="year" name="apprenticeYear" class="form-control" value="${selectedApprentice.year}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Téléphone:</label>
+                        <input type="tel" id="phoneNumber" name="apprenticePhoneNumber" class="form-control" value="${selectedApprentice.phoneNumber}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="checkBox" class="form-check-label">Archiver:</label>
+                        <input type="checkbox" id="checkBox" name="apprenticeArchived" class="form-check-input" <c:if test="${selectedApprentice.archived}">checked</c:if>>
+                    </div>
+                    <div class="text-center">
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" form="addApprenticeForm" class="btn btn-secondary" name="action" value="Ajouter ou modifier un apprenti">
+            </div>
+        </div>
+    </div>
+</div>

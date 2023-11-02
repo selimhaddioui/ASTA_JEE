@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public abstract class ServletRequireApprentice extends ServletRequireUser {
     private ApprenticeEntity sessionApprentice;
+
     @Override
     public final void processUserRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (super.getSessionUser() instanceof ApprenticeEntity) {

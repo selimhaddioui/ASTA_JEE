@@ -8,19 +8,17 @@ import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
-
 
 @Stateless
 public class TutorSessionBean {
     @PersistenceContext(unitName = DatabaseConstants.PERSISTENCE_UNIT)
-    private EntityManager entityManager;
+    private EntityManager _entityManager;
 
     public TutorEntity getTutorByEmailOrNull(String email) {
-        var requete = entityManager.createNamedQuery(TutorConstants.GET_TUTOR_BY_EMAIL_QUERY_NAME);
-        requete.setParameter(UserConstants.EMAIL_COLUMN, email);
+        var query = _entityManager.createNamedQuery(TutorConstants.GET_TUTOR_BY_EMAIL_QUERY_NAME);
+        query.setParameter(UserConstants.EMAIL_COLUMN, email);
         try {
-            return (TutorEntity) requete.getSingleResult();
+            return (TutorEntity) query.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }

@@ -8,10 +8,14 @@ import static fr.efrei2023.asta.projet_asta.utils.UserConstants.*;
 @Entity
 @Table(name = TABLE, schema = DatabaseConstants.SCHEMA)
 @Inheritance(strategy = InheritanceType.JOINED)
-@NamedQueries({@NamedQuery(name = GET_USER_BY_EMAIL_QUERY_NAME, query = GET_USER_BY_EMAIL_QUERY)})
+@NamedQueries(
+        {
+                @NamedQuery(name = GET_USER_BY_EMAIL_QUERY_NAME, query = GET_USER_BY_EMAIL_QUERY)
+        }
+)
 public class UserEntity {
     @Id
-    @Column(name = EMAIL_COLUMN, nullable = false, unique = true)
+    @Column(name = EMAIL_COLUMN, nullable = false, unique = true, updatable = false)
     private String email;
     @GeneratedValue
     @Column(name = PASSWORD_COLUMN, nullable = false)
@@ -23,9 +27,10 @@ public class UserEntity {
     @Column(name = PHONE_NUMBER_COLUMN)
     private String phoneNumber;
 
-    public UserEntity(){
+    public UserEntity() {
 
     }
+
     public UserEntity(String email, String firstName, String lastName, String phoneNumber) {
         this.email = email;
         this.firstName = firstName;
@@ -46,7 +51,7 @@ public class UserEntity {
     }
 
     public String getLastName() {
-        return lastName.toUpperCase();
+        return lastName;
     }
 
     public String getPhoneNumber() {

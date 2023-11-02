@@ -1,20 +1,23 @@
 package fr.efrei2023.asta.projet_asta.service.login;
 
 import fr.efrei2023.asta.projet_asta.model.UserEntity;
-import fr.efrei2023.asta.projet_asta.repository.ApprenticeSessionBean;
-import fr.efrei2023.asta.projet_asta.repository.TutorSessionBean;
-import fr.efrei2023.asta.projet_asta.repository.UserSessionBean;
+import fr.efrei2023.asta.projet_asta.service.apprentice.IApprenticeService;
+import fr.efrei2023.asta.projet_asta.service.tutor.ITutorService;
+import fr.efrei2023.asta.projet_asta.service.user.IUserService;
 import fr.efrei2023.asta.projet_asta.utils.LoginConstants;
-import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import jakarta.inject.Inject;
 
 import java.sql.SQLException;
 
 @Stateless
 public class LoginService implements ILoginService {
-    @EJB public UserSessionBean _userSessionBean;
-    @EJB public ApprenticeSessionBean _apprenticeSessionBean;
-    @EJB public TutorSessionBean _tutorSessionBean;
+    @Inject
+    public IUserService _userService;
+    @Inject
+    public IApprenticeService _apprenticeService;
+    @Inject
+    public ITutorService _tutorService;
 
     @Override
     public UserEntity login(String login, String password) throws SQLException {
@@ -23,17 +26,17 @@ public class LoginService implements ILoginService {
         var user = getUserFromApprenticeOrTutorSessionBean(login);
         if (user != null && user.isPasswordCorrect(password))
             return user;
-        var corruptedUser = _userSessionBean.getUserByEmailOrNull(login);
+        var corruptedUser = _userService.getUserOrNull(login);
         if (user == null && corruptedUser != null && corruptedUser.isPasswordCorrect(password))
             throw new SQLException(LoginConstants.ERROR_MESSAGE_VALUE_WHEN_USER_IS_NEITHER_APPRENTICE_OR_TUTOR);
         throw new SQLException(LoginConstants.ERROR_MESSAGE_VALUE_WHEN_WRONG_CREDENTIAL);
     }
 
     @Override
-    public UserEntity getUserFromApprenticeOrTutorSessionBean(String email){
-        var user = _tutorSessionBean.getTutorByEmailOrNull(email);
+    public UserEntity getUserFromApprenticeOrTutorSessionBean(String email) {
+        var user = _tutorService.getTutorOrNull(email);
         return user == null
-                ? _apprenticeSessionBean.getApprenticeByEmailOrNull(email)
+                ? _apprenticeService.getApprenticeOrNull(email)
                 : user;
     }
 }

@@ -29,8 +29,10 @@
         <tr <c:choose>
             <c:when test="${apprentice.isArchived()}"> class="table-warning" </c:when>
             <c:otherwise> class="table-secondary" </c:otherwise>
-            </c:choose>>
-
+        </c:choose>>
+            <form id="formApprentice-${apprentice.email}" action="<c:url value="/tutor" />" method="post">
+                <input type="hidden" name="apprenticeEmail" value="${apprentice.email}"/>
+            </form>
             <th>${apprentice.firstName}</th>
             <th>${apprentice.lastName}</th>
             <td>${apprentice.program}</td>
@@ -40,15 +42,14 @@
             <td>${apprentice.phoneNumber}</td>
             <td>${apprentice.company}</td>
             <td>${apprentice.archived}</td>
-            <td>
-                <form action="<c:url value="/tutor" />" method="post">
-                    <input type="hidden" name="apprenticeEmail" value="${apprentice.email}"/>
-                    <input type="submit" class="form-control btn btn-light" name="action" value="update">
-                    <c:if test="${!apprentice.isArchived()}">
-                        <input type="submit" class="form-control btn btn-light" name="action" value="archive">
-                    </c:if>
-                </form>
+            <td><input type="submit" form="formApprentice-${apprentice.email}" class="form-control btn btn-light" name="action"
+                       value="Selectionner l'apprenti">
             </td>
+            <c:if test="${!apprentice.isArchived()}">
+                <td><input type="submit" form="formApprentice-${apprentice.email}" class="form-control btn btn-light"
+                           name="action" value="archive">
+                </td>
+            </c:if>
         </tr>
     </c:forEach>
     </tbody>

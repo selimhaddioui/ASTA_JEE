@@ -4,6 +4,7 @@ import java.io.*;
 import java.sql.SQLException;
 
 import fr.efrei2023.asta.projet_asta.filter.ApprenticeFilter;
+import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
 import fr.efrei2023.asta.projet_asta.servlet.authentication.ServletRequireTutor;
 import fr.efrei2023.asta.projet_asta.service.apprentice.IApprenticeService;
 import fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants;
@@ -22,30 +23,54 @@ public class TutorServlet extends ServletRequireTutor {
     @Override
     protected void processTutorRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         var userAction = request.getParameter(ACTION_ATTRIBUTE);
-        request.removeAttribute(ACTION_ATTRIBUTE);
+        setSelectedApprenticeInSession(request);
         if (userAction != null) {
             switch (userAction) {
-                case ACTION_ATTRIBUTE_VALUE_WHEN_CREATE -> createApprentice(request, response);
-                case ACTION_ATTRIBUTE_VALUE_WHEN_UPDATE -> updateApprentice(request, response);
+                case ACTION_ATTRIBUTE_VALUE_WHEN_CREATE_OR_UPDATE -> createOrUpdate(request, response);
                 case ACTION_ATTRIBUTE_VALUE_WHEN_ARCHIVE -> archiveApprentice(request, response);
+                case ACTION_ATTRIBUTE_VALUE_WHEN_RESET_FILTERS -> ApprenticeFilter.reset(request);
             }
             loadSessionTutor(request);
         }
         forwardTutorHomePage(request, response);
     }
 
-    private void createApprentice(HttpServletRequest request, HttpServletResponse response) {
+    private void setSelectedApprenticeInSession(HttpServletRequest request) {
+        var apprenticeMail = request.getParameter(ApprenticeConstants.EMAIL_PARAMETER);
+        var apprentice = _apprenticeService.getApprenticeOrNull(apprenticeMail);
+        var previousSelectedApprentice = request.getSession().getAttribute(ApprenticeConstants.SELECTED_APPRENTICE_ATTRIBUTE);
+        if (apprentice == null && previousSelectedApprentice != null) {
+            return;
+        }
+        apprentice = apprentice != null ? apprentice : new ApprenticeEntity();
+        request.getSession().setAttribute(ApprenticeConstants.SELECTED_APPRENTICE_ATTRIBUTE, apprentice);
+    }
+
+    private void createOrUpdate(HttpServletRequest request, HttpServletResponse response) {
+        request.getSession().removeAttribute(ApprenticeConstants.SELECTED_APPRENTICE_ATTRIBUTE);
+        var archivedParameter = request.getParameter(ApprenticeConstants.ARCHIVED_PARAMETER);
+        var isArchivedChecked = archivedParameter != null && !archivedParameter.isEmpty();
+        var requestApprentice = new ApprenticeEntity(
+                getSessionTutor(),
+                request.getParameter(ApprenticeConstants.EMAIL_PARAMETER),
+                request.getParameter(ApprenticeConstants.FIRSTNAME_PARAMETER),
+                request.getParameter(ApprenticeConstants.LASTNAME_PARAMETER),
+                request.getParameter(ApprenticeConstants.PROGRAM_PARAMETER),
+                request.getParameter(ApprenticeConstants.MAJOR_PARAMETER),
+                request.getParameter(ApprenticeConstants.YEAR_PARAMETER),
+                request.getParameter(ApprenticeConstants.PHONE_NUMBER_PARAMETER),
+                isArchivedChecked
+        );
+        if (_apprenticeService.getApprenticeOrNull(requestApprentice.getEmail()) != null) {
+            updateApprentice(request, response, requestApprentice);
+        } else {
+            createApprentice(request, response, requestApprentice);
+        }
+    }
+
+    private void createApprentice(HttpServletRequest request, HttpServletResponse response, ApprenticeEntity apprentice) {
         try {
-            _apprenticeService.createApprentice(
-                    getSessionTutor().getEmail(),
-                    request.getParameter(ApprenticeConstants.EMAIL_PARAMETER),
-                    request.getParameter(ApprenticeConstants.FIRSTNAME_PARAMETER),
-                    request.getParameter(ApprenticeConstants.LASTNAME_PARAMETER),
-                    request.getParameter(ApprenticeConstants.PROGRAM_PARAMETER),
-                    request.getParameter(ApprenticeConstants.MAJOR_PARAMETER),
-                    request.getParameter(ApprenticeConstants.YEAR_PARAMETER),
-                    request.getParameter(ApprenticeConstants.PHONE_NUMBER_PARAMETER)
-            );
+            _apprenticeService.createApprentice(apprentice);
             request.setAttribute(STATUS_QUERY_ATTRIBUTE, STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_CREATE_SUCCESS);
         } catch (SQLException e) {
             request.setAttribute(STATUS_QUERY_ATTRIBUTE, e.getMessage());
@@ -53,18 +78,9 @@ public class TutorServlet extends ServletRequireTutor {
         }
     }
 
-    private void updateApprentice(HttpServletRequest request, HttpServletResponse response) {
+    private void updateApprentice(HttpServletRequest request, HttpServletResponse response, ApprenticeEntity apprentice) {
         try {
-            _apprenticeService.updateApprentice(
-                    request.getParameter(ApprenticeConstants.EMAIL_PARAMETER),
-                    request.getParameter(ApprenticeConstants.FIRSTNAME_PARAMETER),
-                    request.getParameter(ApprenticeConstants.LASTNAME_PARAMETER),
-                    request.getParameter(ApprenticeConstants.PROGRAM_PARAMETER),
-                    request.getParameter(ApprenticeConstants.MAJOR_PARAMETER),
-                    request.getParameter(ApprenticeConstants.YEAR_PARAMETER),
-                    request.getParameter(ApprenticeConstants.PHONE_NUMBER_PARAMETER),
-                    Boolean.parseBoolean(request.getParameter(ApprenticeConstants.ARCHIVED_PARAMETER))
-            );
+            _apprenticeService.updateApprentice(apprentice);
             request.setAttribute(STATUS_QUERY_ATTRIBUTE, STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_UPDATE_SUCCESS);
         } catch (SQLException e) {
             request.setAttribute(STATUS_QUERY_ATTRIBUTE, e.getMessage());
@@ -81,17 +97,13 @@ public class TutorServlet extends ServletRequireTutor {
             request.setAttribute(STATUS_QUERY_ATTRIBUTE, e.getMessage());
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
-        request.getSession().setAttribute(
-                ApprenticeConstants.FILTER_ARCHIVE_PARAMETER,
-                request.getParameter(ApprenticeConstants.FILTER_ARCHIVE_PARAMETER)
-        );
     }
 
-    protected void forwardTutorHomePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void forwardTutorHomePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         var apprentices = getSessionTutor().getApprentices();
         if (apprentices == null || apprentices.isEmpty())
             request.setAttribute(EMPTY_LIST_MESSAGE_ATTRIBUTE, EMPTY_LIST_MESSAGE_ATTRIBUTE_VALUE_WHEN_TUTOR_HAVE_NO_APPRENTICE);
-        apprentices = ApprenticeFilter.applyFromRequestFilters(apprentices, request);
+        apprentices = ApprenticeFilter.applyFromRequestOrSessionFilters(apprentices, request);
         if (apprentices == null || apprentices.isEmpty() && !getSessionTutor().getApprentices().isEmpty())
             request.setAttribute(EMPTY_LIST_MESSAGE_ATTRIBUTE, EMPTY_LIST_MESSAGE_ATTRIBUTE_VALUE_WHEN_FILTER_MATCH_NO_APPRENTICE);
         request.setAttribute(ApprenticeConstants.APPRENTICES_ATTRIBUTE, apprentices);

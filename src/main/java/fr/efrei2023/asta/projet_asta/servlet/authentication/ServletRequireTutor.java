@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public abstract class ServletRequireTutor extends ServletRequireUser {
     private TutorEntity sessionTutor;
+
     @Override
     public final void processUserRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (super.getSessionUser() instanceof TutorEntity) {
@@ -27,7 +28,7 @@ public abstract class ServletRequireTutor extends ServletRequireUser {
         return sessionTutor;
     }
 
-    protected final void loadSessionTutor(HttpServletRequest request){
+    protected final void loadSessionTutor(HttpServletRequest request) {
         loadSessionUser(request);
         sessionTutor = (TutorEntity) super.getSessionUser();
     }

@@ -1,5 +1,6 @@
 package fr.efrei2023.asta.projet_asta.model;
 
+import fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants;
 import fr.efrei2023.asta.projet_asta.utils.DatabaseConstants;
 import jakarta.persistence.*;
 
@@ -9,12 +10,13 @@ import static fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants.*;
 @Table(name = TABLE, schema = DatabaseConstants.SCHEMA)
 @NamedQueries(
         {
-                @NamedQuery(name = GET_APPRENTICE_BY_EMAIL_QUERY_NAME, query = GET_APPRENTICE_BY_EMAIL_QUERY),
-//                @NamedQuery(name = INSERT_APPRENTICE_QUERY_NAME, query = INSERT_APPRENTICE_QUERY),
-                @NamedQuery(name = ARCHIVE_APPRENTICE_QUERY_NAME, query = ARCHIVE_APPRENTICE_QUERY)
+                @NamedQuery(name = GET_APPRENTICE_BY_EMAIL_QUERY_NAME, query = GET_APPRENTICE_BY_EMAIL_QUERY)
         }
 )
 public class ApprenticeEntity extends UserEntity {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = ApprenticeConstants.TUTOR_COLUMN, updatable = false)
+    private TutorEntity tutor;
     @Column(name = PROGRAM_COLUMN)
     private String program;
     @Column(name = MAJOR_COLUMN)
@@ -27,7 +29,8 @@ public class ApprenticeEntity extends UserEntity {
     public ApprenticeEntity() {
     }
 
-    public ApprenticeEntity(String email,
+    public ApprenticeEntity(TutorEntity tutor,
+                            String email,
                             String firstName,
                             String lastName,
                             String phoneNumber,
@@ -36,10 +39,22 @@ public class ApprenticeEntity extends UserEntity {
                             String year,
                             boolean archived) {
         super(email, firstName, lastName, phoneNumber);
+        this.tutor = tutor;
         this.program = program;
         this.major = major;
         this.year = year;
         this.archived = archived;
+    }
+
+    public ApprenticeEntity(String email,
+                            String firstName,
+                            String lastName,
+                            String phoneNumber,
+                            String program,
+                            String major,
+                            String year,
+                            boolean archived) {
+        this(null, email, firstName, lastName, phoneNumber, program, major, year, archived);
     }
 
     public String getCompany() {

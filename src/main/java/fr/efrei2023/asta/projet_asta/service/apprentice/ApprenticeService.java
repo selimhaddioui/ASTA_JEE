@@ -14,40 +14,21 @@ public class ApprenticeService implements IApprenticeService {
     private ApprenticeSessionBean _apprenticeSessionBean;
 
     @Override
-    public void createApprentice(String tutorEmail,
-                                 String apprenticeEmail,
-                                 String apprenticeFirstName,
-                                 String apprenticeLastName,
-                                 String apprenticeProgram,
-                                 String apprenticeMajor,
-                                 String apprenticeYear,
-                                 String apprenticePhoneNumber) throws SQLException {
-        if (tutorEmail == null || tutorEmail.isEmpty() || apprenticeEmail == null || apprenticeEmail.isEmpty()
-                || !_apprenticeSessionBean.createApprentice(tutorEmail, apprenticeEmail, apprenticeFirstName, apprenticeLastName,
-                apprenticePhoneNumber, apprenticeProgram, apprenticeMajor, apprenticeYear)
-        )
-            throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_CREATE_FAIL);
+    public ApprenticeEntity getApprenticeOrNull(String email) {
+        return _apprenticeSessionBean.getApprenticeByEmailOrNull(email);
     }
 
     @Override
-    public void updateApprentice(String apprenticeEmail,
-                                 String apprenticeFirstName,
-                                 String apprenticeLastName,
-                                 String apprenticeProgram,
-                                 String apprenticeMajor,
-                                 String apprenticeYear,
-                                 String apprenticePhoneNumber,
-                                 boolean apprenticeArchived) throws SQLException {
-        var apprentice = new ApprenticeEntity(
-                apprenticeEmail,
-                apprenticeFirstName,
-                apprenticeLastName,
-                apprenticePhoneNumber,
-                apprenticeProgram,
-                apprenticeMajor,
-                apprenticeYear,
-                apprenticeArchived
-        );
+    public void createApprentice(ApprenticeEntity apprentice) throws SQLException {
+        try {
+            _apprenticeSessionBean.createApprentice(apprentice);
+        } catch (SQLException e) {
+            throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_CREATE_FAIL);
+        }
+    }
+
+    @Override
+    public void updateApprentice(ApprenticeEntity apprentice) throws SQLException {
         try {
             _apprenticeSessionBean.updateApprentice(apprentice);
         } catch (IllegalArgumentException e) {
@@ -56,10 +37,10 @@ public class ApprenticeService implements IApprenticeService {
     }
 
     @Override
-    public void archiveApprentice(String apprenticeEmail) throws SQLException {
+    public void archiveApprentice(String email) throws SQLException {
         try {
-            var apprentice = _apprenticeSessionBean.getApprenticeByEmailOrNull(apprenticeEmail);
-            if(apprentice.isArchived())
+            var apprentice = _apprenticeSessionBean.getApprenticeByEmailOrNull(email);
+            if (apprentice.isArchived())
                 throw new Exception();
             apprentice.setArchived(true);
             _apprenticeSessionBean.updateApprentice(apprentice);

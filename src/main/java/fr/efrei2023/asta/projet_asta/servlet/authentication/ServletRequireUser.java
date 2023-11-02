@@ -19,7 +19,7 @@ public abstract class ServletRequireUser extends HttpServlet {
         processSecureRequest(request, response);
     }
 
-    public final void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+    public final void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         processSecureRequest(request, response);
     }
 
@@ -37,7 +37,7 @@ public abstract class ServletRequireUser extends HttpServlet {
         }
     }
 
-    protected final void loadSessionUser(HttpServletRequest request){
+    protected final void loadSessionUser(HttpServletRequest request) {
         sessionUser = _loginService.getUserFromApprenticeOrTutorSessionBean(sessionUser.getEmail());
         request.getSession().setAttribute(UserConstants.USER_ATTRIBUTE, sessionUser);
     }
