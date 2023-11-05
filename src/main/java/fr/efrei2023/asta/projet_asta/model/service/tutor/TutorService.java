@@ -1,9 +1,10 @@
-package fr.efrei2023.asta.projet_asta.service.tutor;
+package fr.efrei2023.asta.projet_asta.model.service.tutor;
 
-import fr.efrei2023.asta.projet_asta.model.TutorEntity;
-import fr.efrei2023.asta.projet_asta.repository.TutorSessionBean;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+
+import fr.efrei2023.asta.projet_asta.model.entity.TutorEntity;
+import fr.efrei2023.asta.projet_asta.model.sessionbean.TutorSessionBean;
 
 @Stateless
 public class TutorService implements ITutorService {

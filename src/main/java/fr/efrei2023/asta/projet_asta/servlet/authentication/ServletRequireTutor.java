@@ -1,11 +1,12 @@
 package fr.efrei2023.asta.projet_asta.servlet.authentication;
 
-import fr.efrei2023.asta.projet_asta.model.TutorEntity;
+import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
+import fr.efrei2023.asta.projet_asta.model.entity.TutorEntity;
 
 import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
 

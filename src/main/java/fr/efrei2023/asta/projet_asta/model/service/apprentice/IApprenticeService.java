@@ -1,8 +1,8 @@
-package fr.efrei2023.asta.projet_asta.service.apprentice;
-
-import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
+package fr.efrei2023.asta.projet_asta.model.service.apprentice;
 
 import java.sql.SQLException;
+
+import fr.efrei2023.asta.projet_asta.model.entity.ApprenticeEntity;
 
 public interface IApprenticeService {
 

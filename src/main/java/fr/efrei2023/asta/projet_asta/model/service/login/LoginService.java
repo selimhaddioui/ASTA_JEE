@@ -1,13 +1,14 @@
-package fr.efrei2023.asta.projet_asta.service.login;
+package fr.efrei2023.asta.projet_asta.model.service.login;
 
-import fr.efrei2023.asta.projet_asta.model.UserEntity;
-import fr.efrei2023.asta.projet_asta.service.apprentice.IApprenticeService;
-import fr.efrei2023.asta.projet_asta.service.tutor.ITutorService;
-import fr.efrei2023.asta.projet_asta.service.user.IUserService;
+import java.sql.SQLException;
+
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
-import java.sql.SQLException;
+import fr.efrei2023.asta.projet_asta.model.entity.UserEntity;
+import fr.efrei2023.asta.projet_asta.model.service.apprentice.IApprenticeService;
+import fr.efrei2023.asta.projet_asta.model.service.tutor.ITutorService;
+import fr.efrei2023.asta.projet_asta.model.service.user.IUserService;
 
 import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
 

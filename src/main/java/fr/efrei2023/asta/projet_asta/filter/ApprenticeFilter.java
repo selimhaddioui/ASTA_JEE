@@ -1,13 +1,14 @@
 package fr.efrei2023.asta.projet_asta.filter;
 
-import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Stream;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
+import fr.efrei2023.asta.projet_asta.model.entity.ApprenticeEntity;
 
 import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.Apprentice.*;
 

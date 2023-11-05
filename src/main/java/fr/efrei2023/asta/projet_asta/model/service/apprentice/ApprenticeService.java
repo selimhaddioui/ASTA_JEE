@@ -1,11 +1,12 @@
-package fr.efrei2023.asta.projet_asta.service.apprentice;
+package fr.efrei2023.asta.projet_asta.model.service.apprentice;
 
-import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
-import fr.efrei2023.asta.projet_asta.repository.ApprenticeSessionBean;
+import java.sql.SQLException;
+
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 
-import java.sql.SQLException;
+import fr.efrei2023.asta.projet_asta.model.entity.ApprenticeEntity;
+import fr.efrei2023.asta.projet_asta.model.sessionbean.ApprenticeSessionBean;
 
 import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
 

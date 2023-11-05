@@ -1,14 +1,15 @@
 package fr.efrei2023.asta.projet_asta.servlet.log;
 
-import fr.efrei2023.asta.projet_asta.servlet.authentication.ServletRequireUser;
-import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
-import fr.efrei2023.asta.projet_asta.model.TutorEntity;
-import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
+import java.io.IOException;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
+import fr.efrei2023.asta.projet_asta.servlet.authentication.ServletRequireUser;
+import fr.efrei2023.asta.projet_asta.model.entity.ApprenticeEntity;
+import fr.efrei2023.asta.projet_asta.model.entity.TutorEntity;
+import fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
 
 import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.Redirect.*;
 
@@ -21,7 +22,7 @@ public class RedirectServlet extends ServletRequireUser {
             response.sendRedirect(request.getContextPath() + Tutor.SERVLET_PATH);
             return;
         }
-        if (sessionUser instanceof ApprenticeEntity){
+        if (sessionUser instanceof ApprenticeEntity) {
             response.sendRedirect(request.getContextPath() + Apprentice.SERVLET_PATH);
             return;
         }

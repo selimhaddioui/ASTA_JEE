@@ -1,10 +1,9 @@
-package fr.efrei2023.asta.projet_asta.repository;
+package fr.efrei2023.asta.projet_asta.model.sessionbean;
 
-import fr.efrei2023.asta.projet_asta.model.TutorEntity;
 import jakarta.ejb.Stateless;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.NoResultException;
-import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.*;
+
+import fr.efrei2023.asta.projet_asta.model.entity.TutorEntity;
 
 
 import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;

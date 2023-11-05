@@ -3,15 +3,16 @@ package fr.efrei2023.asta.projet_asta.servlet;
 import java.io.*;
 import java.sql.SQLException;
 
-import fr.efrei2023.asta.projet_asta.filter.ApprenticeFilter;
-import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
-import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
-import fr.efrei2023.asta.projet_asta.servlet.authentication.ServletRequireTutor;
-import fr.efrei2023.asta.projet_asta.service.apprentice.IApprenticeService;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+
+import fr.efrei2023.asta.projet_asta.filter.ApprenticeFilter;
+import fr.efrei2023.asta.projet_asta.model.entity.ApprenticeEntity;
+import fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
+import fr.efrei2023.asta.projet_asta.servlet.authentication.ServletRequireTutor;
+import fr.efrei2023.asta.projet_asta.model.service.apprentice.IApprenticeService;
 
 import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.Tutor.*;
 

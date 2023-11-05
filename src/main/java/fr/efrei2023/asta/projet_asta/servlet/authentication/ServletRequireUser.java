@@ -2,11 +2,12 @@ package fr.efrei2023.asta.projet_asta.servlet.authentication;
 
 import java.io.*;
 
-import fr.efrei2023.asta.projet_asta.model.UserEntity;
-import fr.efrei2023.asta.projet_asta.service.login.ILoginService;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
+
+import fr.efrei2023.asta.projet_asta.model.entity.UserEntity;
+import fr.efrei2023.asta.projet_asta.model.service.login.ILoginService;
 
 import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
 
@@ -43,7 +44,7 @@ public abstract class ServletRequireUser extends HttpServlet {
     }
 
     /**
-     * Request to process when we user is authorized to.
+     * Request to process when user is authorized to.
      */
     public abstract void processUserRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 

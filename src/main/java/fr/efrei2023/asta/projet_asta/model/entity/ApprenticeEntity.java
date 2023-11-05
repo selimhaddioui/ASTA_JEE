@@ -1,7 +1,8 @@
-package fr.efrei2023.asta.projet_asta.model;
+package fr.efrei2023.asta.projet_asta.model.entity;
+
+import jakarta.persistence.*;
 
 import fr.efrei2023.asta.projet_asta.utils.AstaConstants;
-import jakarta.persistence.*;
 
 import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.Apprentice.*;
 

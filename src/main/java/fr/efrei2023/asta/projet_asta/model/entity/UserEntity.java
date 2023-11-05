@@ -1,4 +1,4 @@
-package fr.efrei2023.asta.projet_asta.model;
+package fr.efrei2023.asta.projet_asta.model.entity;
 
 import jakarta.persistence.*;
 

@@ -1,6 +1,6 @@
-package fr.efrei2023.asta.projet_asta.service.login;
+package fr.efrei2023.asta.projet_asta.model.service.login;
 
-import fr.efrei2023.asta.projet_asta.model.UserEntity;
+import fr.efrei2023.asta.projet_asta.model.entity.UserEntity;
 
 import java.sql.SQLException;
 

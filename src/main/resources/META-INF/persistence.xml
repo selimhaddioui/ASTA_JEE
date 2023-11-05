@@ -6,8 +6,8 @@
 
     <persistence-unit name="ASTA_PU">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>fr.efrei2023.asta.projet_asta.model.UserEntity</class>
-        <class>fr.efrei2023.asta.projet_asta.model.ApprenticeEntity</class>
+        <class>fr.efrei2023.asta.projet_asta.model.entity.UserEntity</class>
+        <class>fr.efrei2023.asta.projet_asta.model.entity.ApprenticeEntity</class>
         <properties>
             <!--            provider configuration            -->
             <property name = "hibernate.show_sql" value = "true" />
