@@ -95,6 +95,7 @@ public class AstaConstants {
 
         // Columns
         public static final String TUTOR_COLUMN = "EmailTuteur";
+        public static final String JOB_COLUMN = "Mission";
         public static final String PROGRAM_COLUMN = "Programme";
         public static final String MAJOR_COLUMN = "Majeure";
         public static final String YEAR_COLUMN = "Annee";
@@ -105,21 +106,56 @@ public class AstaConstants {
         public static final String GET_APPRENTICE_BY_EMAIL_QUERY = "SELECT a FROM ApprenticeEntity a WHERE a.email = :" + User.EMAIL_COLUMN;
     }
 
+    public static class Company {
+        // Attribute
+        public static final String TABLE = "Entreprise";
+
+        // Columns
+        public static final String COMPANY_NAME_COLUMN = "RaisonSocial";
+        public static final String ADDRESS_COLUMN = "Adresse";
+        public static final String ACCESS_INFO_COLUMN = "InfosAcces";
+    }
+
+    public static class Job {
+        // Attribute
+        public static final String TABLE = "Mission";
+
+        // Columns
+        public static final String COMPANY_COLUMN = "Entreprise";
+        public static final String APPRENTICE_COLUMN = "Apprenti";
+        public static final String DESCRIPTION_COLUMN = "Description";
+        public static final String CIGREF_JOB_COLUMN = "Cigref";
+        public static final String REMARK_COLUMN = "Commentaire";
+    }
+
+    public static class Visit {
+        // Attribute
+        public static final String TABLE = "Visite";
+
+        // Columns
+        public static final String APPRENTICE_COLUMN = "Apprenti";
+        public static final String DATE_COLUMN = "Date";
+        public static final String FORMAT_COLUMN = "Format";
+        public static final String REMARK_COLUMN = "CompteRendu";
+
+    }
+
     public static class Login {
         // Servlet
         public static final String SERVLET_NAME = "login";
+
         public static final String SERVLET_PATH = "/" + SERVLET_NAME;
-
         // View
-        public static final String VIEW_PATH = "/WEB-INF/jsp/login.jsp";
 
+        public static final String VIEW_PATH = "/WEB-INF/jsp/login.jsp";
         // Parameter
         public static final String EMAIL_FIELD = "fieldEmail";
-        public static final String PASSWORD_FIELD = "fieldPassword";
 
+        public static final String PASSWORD_FIELD = "fieldPassword";
         // Attribute
         public static final String ERROR_MESSAGE_ATTRIBUTE = "errorMessage";
         public static final String ERROR_MESSAGE_VALUE_WHEN_WRONG_CREDENTIAL = "Email ou mot de passe incorrect.";
+
         public static final String ERROR_MESSAGE_VALUE_WHEN_USER_IS_NEITHER_APPRENTICE_OR_TUTOR = "L'utilisateur n'est ni apprenti ni tuteur, connexion impossible.";
 
     }
@@ -128,16 +164,20 @@ public class AstaConstants {
         // Servlet
         public static final String SERVLET_NAME = "logout";
         public static final String SERVLET_PATH = "/" + SERVLET_NAME;
+
     }
 
     public static class Redirect {
         // Servlet
         public static final String SERVLET_NAME = "redirect";
         public static final String SERVLET_PATH = "/" + SERVLET_NAME;
+
     }
 
     public static class Database {
         public static final String SCHEMA = "ASTA_DB";
         public static final String PERSISTENCE_UNIT = "ASTA_PU";
+
     }
+
 }

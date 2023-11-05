@@ -1,5 +1,7 @@
 package fr.efrei2023.asta.projet_asta.model.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 import fr.efrei2023.asta.projet_asta.utils.AstaConstants;
@@ -17,6 +19,10 @@ public class ApprenticeEntity extends UserEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = TUTOR_COLUMN, updatable = false)
     private TutorEntity tutor;
+    @OneToOne(mappedBy = "worker", fetch = FetchType.EAGER)
+    private JobEntity job;
+    @OneToMany(mappedBy = "id.apprentice", fetch = FetchType.EAGER)
+    private List<VisitEntity> visits;
     @Column(name = PROGRAM_COLUMN)
     private String program;
     @Column(name = MAJOR_COLUMN)
@@ -57,8 +63,8 @@ public class ApprenticeEntity extends UserEntity {
         this(null, email, firstName, lastName, phoneNumber, program, major, year, archived);
     }
 
-    public String getCompany() {
-        return "NotImplementedYet";
+    public JobEntity getJob() {
+        return job;
     }
 
     public String getProgram() {
@@ -79,5 +85,9 @@ public class ApprenticeEntity extends UserEntity {
 
     public void setArchived(boolean isArchived) {
         this.archived = isArchived;
+    }
+
+    public List<VisitEntity> getVisits() {
+        return visits;
     }
 }

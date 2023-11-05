@@ -18,6 +18,7 @@
         <th scope="col">Adresse Electronique</th>
         <th scope="col">Téléphone</th>
         <th scope="col">Entreprise</th>
+        <th scope="col">Description Mission</th>
         <th scope="col">Archive</th>
         <th scope="col"></th>
         <th scope="col"></th>
@@ -25,6 +26,7 @@
     </tr>
     </thead>
     <tbody>
+    <jsp:useBean id="apprentices" scope="request" type="java.util.List<fr.efrei2023.asta.projet_asta.model.entity.ApprenticeEntity>"/>
     <c:forEach items="${apprentices}" var="apprentice" varStatus="loop">
         <tr <c:choose>
             <c:when test="${apprentice.isArchived()}"> class="table-warning" </c:when>
@@ -40,7 +42,8 @@
             <td>${apprentice.year}</td>
             <td>${apprentice.email}</td>
             <td>${apprentice.phoneNumber}</td>
-            <td>${apprentice.company}</td>
+            <td>${apprentice.job.company.companyName}</td>
+            <td>${apprentice.job.descriptionKeysWords}</td>
             <td>${apprentice.archived}</td>
             <td><input type="submit" form="formApprentice-${apprentice.email}" class="form-control btn btn-light" name="action"
                        value="Selectionner l'apprenti">

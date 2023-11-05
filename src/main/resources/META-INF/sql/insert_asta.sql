@@ -1,9 +1,9 @@
+INSERT INTO Entreprise (RaisonSocial, Adresse, InfosAcces) VALUES ('ABC Manufacturing', '123 Main Street', 'Manufacturing company');
+INSERT INTO Entreprise (RaisonSocial, Adresse, InfosAcces) VALUES ('XYZ Manufacturing', '456 Main Street', 'Manufacturing company');
+INSERT INTO Entreprise (RaisonSocial, Adresse, InfosAcces) VALUES ('ABC Consulting', '123 Main Street', 'Consulting company');
+
 INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('tutor@efrei.net', 'mdp', 'ACHVAR', 'Didier', '0702070207');
 INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('tutor_without_apprentice@efrei.net', 'mdp', 'TUTEUR', 'tuteur', '0702070207');
-
-INSERT INTO Tuteur (Email, Poste, Remarque) VALUES ('tutor@efrei.net', 'Software Engineer', 'Une remarque');
-INSERT INTO Tuteur (Email, Poste, Remarque) VALUES ('tutor_without_apprentice@efrei.net', 'Data Scientist', 'Une remarque');
-
 INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('student0@efrei.net', 'mdp', 'Student0-LN', 'student0-FN', '0423547569');
 INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('student1@efrei.net', 'mdp', 'Student1-LN', 'student1-FN', '0602060106');
 INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('student2@efrei.net', 'mdp', 'Student2-LN', 'student2-FN', '0602060106');
@@ -14,6 +14,10 @@ INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('student6@
 INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('student7@efrei.net', 'mdp', 'Student7-LN', 'student7-FN', '0154785627');
 INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('student8@efrei.net', 'mdp', 'Student8-LN', 'student8-FN-Archived', '0702010205');
 INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('student9@efrei.net', 'mdp', 'Student9-LN', 'student9-FN-Archived','0402010506');
+INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('corrupted@efrei.net', 'mdp', 'NEITHER', 'APPRENTICE_OR_TUTOR','0402010506');
+
+INSERT INTO Tuteur (Email, Poste, Remarque) VALUES ('tutor@efrei.net', 'Software Engineer', 'Une remarque');
+INSERT INTO Tuteur (Email, Poste, Remarque) VALUES ('tutor_without_apprentice@efrei.net', 'Data Scientist', 'Une remarque');
 
 INSERT INTO Apprenti (Email, Programme, Majeure, Annee, Archiver, EmailTuteur) VALUES ('student0@efrei.net', 'LSI', 'Software Engineering', 2023, false, 'tutor@efrei.net');
 INSERT INTO Apprenti (Email, Programme, Majeure, Annee, Archiver, EmailTuteur) VALUES ('student1@efrei.net', 'LSI', 'Software Engineering', 2023, false, 'tutor@efrei.net');
@@ -26,4 +30,18 @@ INSERT INTO Apprenti (Email, Programme, Majeure, Annee, Archiver, EmailTuteur) V
 INSERT INTO Apprenti (Email, Programme, Majeure, Annee, Archiver, EmailTuteur) VALUES ('student8@efrei.net', 'LSI', 'Software Engineering', 2010, true, 'tutor@efrei.net');
 INSERT INTO Apprenti (Email, Programme, Majeure, Annee, Archiver, EmailTuteur) VALUES ('student9@efrei.net', 'LSI', 'Software Engineering', 2010, true, 'tutor@efrei.net');
 
-INSERT INTO Utilisateur (Email, MotDePasse, Nom, Prenom, Tel) VALUES ('corrupted@efrei.net', 'mdp', 'NEITHER', 'APPRENTICE_OR_TUTOR','0402010506');
+INSERT INTO Mission (Entreprise, Apprenti, Description, Cigref, Commentaire) VALUES ('ABC Manufacturing', 'student0@efrei.net', 'DevOps, node.js, CI/CD, Tests', 'Un intitulé cigref', 'Un commentaire');
+INSERT INTO Mission (Entreprise, Apprenti, Description, Cigref, Commentaire) VALUES ('ABC Manufacturing', 'student1@efrei.net', 'React, SQL, POO', 'Un intitulé cigref', 'Un commentaire');
+INSERT INTO Mission (Entreprise, Apprenti, Description, Cigref, Commentaire) VALUES ('ABC Manufacturing', 'student2@efrei.net', 'TDD, QA, Audit', 'Un intitulé cigref', 'Un commentaire');
+INSERT INTO Mission (Entreprise, Apprenti, Description, Cigref, Commentaire) VALUES ('ABC Manufacturing', 'student3@efrei.net', 'Cyber, Reseau, Cloud', 'Un intitulé cigref', 'Un commentaire');
+INSERT INTO Mission (Entreprise, Apprenti, Description, Cigref, Commentaire) VALUES ('XYZ Manufacturing', 'student4@efrei.net', 'Chef de projet, ScrumMaster', 'Un intitulé cigref', 'Un commentaire');
+INSERT INTO Mission (Entreprise, Apprenti, Description, Cigref, Commentaire) VALUES ('XYZ Manufacturing', 'student5@efrei.net', 'Software Engineer', 'Un intitulé cigref', 'Un commentaire');
+INSERT INTO Mission (Entreprise, Apprenti, Description, Cigref, Commentaire) VALUES ('XYZ Manufacturing', 'student6@efrei.net', 'Developpeur .NET', 'Un intitulé cigref', 'Un commentaire');
+INSERT INTO Mission (Entreprise, Apprenti, Description, Cigref, Commentaire) VALUES ('XYZ Manufacturing', 'student7@efrei.net', 'Developpeur Angular', 'Un intitulé cigref', 'Un commentaire');
+INSERT INTO Mission (Entreprise, Apprenti, Description, Cigref, Commentaire) VALUES ('ABC Consulting', 'student8@efrei.net', 'Spring, JEE', 'Un intitulé cigref', 'Un commentaire');
+INSERT INTO Mission (Entreprise, Apprenti, Description, Cigref, Commentaire) VALUES ('ABC Consulting', 'student9@efrei.net', 'Product Owner', 'Un intitulé cigref', 'Un commentaire');
+
+INSERT INTO Visite (Apprenti, Date, Format, CompteRendu) VALUES ('student2@efrei.net', '2021-01-01', 'Présentiel', 'Un compte rendu');
+INSERT INTO Visite (Apprenti, Date, Format, CompteRendu) VALUES ('student3@efrei.net', '2021-02-01', 'Présentiel', 'Un compte rendu');
+INSERT INTO Visite (Apprenti, Date, Format, CompteRendu) VALUES ('student4@efrei.net', '2021-03-01', 'Distanciel', 'Un compte rendu');
+INSERT INTO Visite (Apprenti, Date, Format, CompteRendu) VALUES ('student5@efrei.net', '2021-04-01', 'Distanciel', 'Un compte rendu');

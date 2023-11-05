@@ -1,4 +1,4 @@
-package fr.efrei2023.asta.projet_asta.servlet.log;
+package fr.efrei2023.asta.projet_asta.servlet.authentication;
 
 import java.io.*;
 import java.sql.SQLException;
