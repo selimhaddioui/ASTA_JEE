@@ -26,7 +26,6 @@
     </tr>
     </thead>
     <tbody>
-    <jsp:useBean id="apprentices" scope="request" type="java.util.List<fr.efrei2023.asta.projet_asta.model.entity.ApprenticeEntity>"/>
     <c:forEach items="${apprentices}" var="apprentice" varStatus="loop">
         <tr <c:choose>
             <c:when test="${apprentice.isArchived()}"> class="table-warning" </c:when>
