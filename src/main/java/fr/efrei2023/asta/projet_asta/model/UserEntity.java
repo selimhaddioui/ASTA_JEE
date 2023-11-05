@@ -1,12 +1,13 @@
 package fr.efrei2023.asta.projet_asta.model;
 
-import fr.efrei2023.asta.projet_asta.utils.DatabaseConstants;
 import jakarta.persistence.*;
 
-import static fr.efrei2023.asta.projet_asta.utils.UserConstants.*;
+import fr.efrei2023.asta.projet_asta.utils.AstaConstants;
+
+import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.User.*;
 
 @Entity
-@Table(name = TABLE, schema = DatabaseConstants.SCHEMA)
+@Table(name = TABLE, schema = AstaConstants.Database.SCHEMA)
 @Inheritance(strategy = InheritanceType.JOINED)
 @NamedQueries(
         {

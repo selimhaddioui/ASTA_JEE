@@ -4,11 +4,11 @@ import java.io.*;
 
 import fr.efrei2023.asta.projet_asta.model.UserEntity;
 import fr.efrei2023.asta.projet_asta.service.login.ILoginService;
-import fr.efrei2023.asta.projet_asta.utils.LoginConstants;
-import fr.efrei2023.asta.projet_asta.utils.UserConstants;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
+
+import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
 
 public abstract class ServletRequireUser extends HttpServlet {
     @Inject
@@ -28,10 +28,10 @@ public abstract class ServletRequireUser extends HttpServlet {
      * Otherwise, we forward to the sign-in view.
      */
     public final void processSecureRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        sessionUser = (UserEntity) request.getSession().getAttribute(UserConstants.USER_ATTRIBUTE);
+        sessionUser = (UserEntity) request.getSession().getAttribute(User.USER_ATTRIBUTE);
         if (sessionUser == null) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            request.getRequestDispatcher(LoginConstants.VIEW_PATH).forward(request, response);
+            request.getRequestDispatcher(Login.VIEW_PATH).forward(request, response);
         } else {
             processUserRequest(request, response);
         }
@@ -39,7 +39,7 @@ public abstract class ServletRequireUser extends HttpServlet {
 
     protected final void loadSessionUser(HttpServletRequest request) {
         sessionUser = _loginService.getUserFromApprenticeOrTutorSessionBean(sessionUser.getEmail());
-        request.getSession().setAttribute(UserConstants.USER_ATTRIBUTE, sessionUser);
+        request.getSession().setAttribute(User.USER_ATTRIBUTE, sessionUser);
     }
 
     /**

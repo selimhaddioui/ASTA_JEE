@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import static fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants.*;
+import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.Apprentice.*;
 
 @WebServlet(name = SERVLET_NAME, value = SERVLET_PATH)
 public class ApprenticeServlet extends ServletRequireApprentice {

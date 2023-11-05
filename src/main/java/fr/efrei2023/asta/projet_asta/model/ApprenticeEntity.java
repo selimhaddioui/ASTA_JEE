@@ -1,13 +1,12 @@
 package fr.efrei2023.asta.projet_asta.model;
 
-import fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants;
-import fr.efrei2023.asta.projet_asta.utils.DatabaseConstants;
+import fr.efrei2023.asta.projet_asta.utils.AstaConstants;
 import jakarta.persistence.*;
 
-import static fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants.*;
+import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.Apprentice.*;
 
 @Entity
-@Table(name = TABLE, schema = DatabaseConstants.SCHEMA)
+@Table(name = TABLE, schema = AstaConstants.Database.SCHEMA)
 @NamedQueries(
         {
                 @NamedQuery(name = GET_APPRENTICE_BY_EMAIL_QUERY_NAME, query = GET_APPRENTICE_BY_EMAIL_QUERY)
@@ -15,7 +14,7 @@ import static fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants.*;
 )
 public class ApprenticeEntity extends UserEntity {
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = ApprenticeConstants.TUTOR_COLUMN, updatable = false)
+    @JoinColumn(name = TUTOR_COLUMN, updatable = false)
     private TutorEntity tutor;
     @Column(name = PROGRAM_COLUMN)
     private String program;

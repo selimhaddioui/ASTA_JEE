@@ -1,12 +1,13 @@
 package fr.efrei2023.asta.projet_asta.servlet.authentication;
 
 import fr.efrei2023.asta.projet_asta.model.TutorEntity;
-import fr.efrei2023.asta.projet_asta.utils.RedirectConstants;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+
+import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
 
 public abstract class ServletRequireTutor extends ServletRequireUser {
     private TutorEntity sessionTutor;
@@ -18,7 +19,7 @@ public abstract class ServletRequireTutor extends ServletRequireUser {
             processTutorRequest(request, response);
         } else {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.sendRedirect(RedirectConstants.SERVLET_PATH);
+            response.sendRedirect(Redirect.SERVLET_PATH);
         }
     }
 

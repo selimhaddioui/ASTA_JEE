@@ -5,15 +5,16 @@ import java.sql.SQLException;
 
 import fr.efrei2023.asta.projet_asta.filter.ApprenticeFilter;
 import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
+import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
 import fr.efrei2023.asta.projet_asta.servlet.authentication.ServletRequireTutor;
 import fr.efrei2023.asta.projet_asta.service.apprentice.IApprenticeService;
-import fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-import static fr.efrei2023.asta.projet_asta.utils.TutorConstants.*;
+import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.Tutor.*;
+
 
 @WebServlet(name = SERVLET_NAME, value = SERVLET_PATH)
 public class TutorServlet extends ServletRequireTutor {
@@ -36,29 +37,29 @@ public class TutorServlet extends ServletRequireTutor {
     }
 
     private void setSelectedApprenticeInSession(HttpServletRequest request) {
-        var apprenticeMail = request.getParameter(ApprenticeConstants.EMAIL_PARAMETER);
+        var apprenticeMail = request.getParameter(Apprentice.EMAIL_PARAMETER);
         var apprentice = _apprenticeService.getApprenticeOrNull(apprenticeMail);
-        var previousSelectedApprentice = request.getSession().getAttribute(ApprenticeConstants.SELECTED_APPRENTICE_ATTRIBUTE);
+        var previousSelectedApprentice = request.getSession().getAttribute(Apprentice.SELECTED_APPRENTICE_ATTRIBUTE);
         if (apprentice == null && previousSelectedApprentice != null) {
             return;
         }
         apprentice = apprentice != null ? apprentice : new ApprenticeEntity();
-        request.getSession().setAttribute(ApprenticeConstants.SELECTED_APPRENTICE_ATTRIBUTE, apprentice);
+        request.getSession().setAttribute(Apprentice.SELECTED_APPRENTICE_ATTRIBUTE, apprentice);
     }
 
     private void createOrUpdate(HttpServletRequest request, HttpServletResponse response) {
-        request.getSession().removeAttribute(ApprenticeConstants.SELECTED_APPRENTICE_ATTRIBUTE);
-        var archivedParameter = request.getParameter(ApprenticeConstants.ARCHIVED_PARAMETER);
+        request.getSession().removeAttribute(Apprentice.SELECTED_APPRENTICE_ATTRIBUTE);
+        var archivedParameter = request.getParameter(Apprentice.ARCHIVED_PARAMETER);
         var isArchivedChecked = archivedParameter != null && !archivedParameter.isEmpty();
         var requestApprentice = new ApprenticeEntity(
                 getSessionTutor(),
-                request.getParameter(ApprenticeConstants.EMAIL_PARAMETER),
-                request.getParameter(ApprenticeConstants.FIRSTNAME_PARAMETER),
-                request.getParameter(ApprenticeConstants.LASTNAME_PARAMETER),
-                request.getParameter(ApprenticeConstants.PROGRAM_PARAMETER),
-                request.getParameter(ApprenticeConstants.MAJOR_PARAMETER),
-                request.getParameter(ApprenticeConstants.YEAR_PARAMETER),
-                request.getParameter(ApprenticeConstants.PHONE_NUMBER_PARAMETER),
+                request.getParameter(Apprentice.EMAIL_PARAMETER),
+                request.getParameter(Apprentice.FIRSTNAME_PARAMETER),
+                request.getParameter(Apprentice.LASTNAME_PARAMETER),
+                request.getParameter(Apprentice.PROGRAM_PARAMETER),
+                request.getParameter(Apprentice.MAJOR_PARAMETER),
+                request.getParameter(Apprentice.YEAR_PARAMETER),
+                request.getParameter(Apprentice.PHONE_NUMBER_PARAMETER),
                 isArchivedChecked
         );
         if (_apprenticeService.getApprenticeOrNull(requestApprentice.getEmail()) != null) {
@@ -89,7 +90,7 @@ public class TutorServlet extends ServletRequireTutor {
     }
 
     private void archiveApprentice(HttpServletRequest request, HttpServletResponse response) {
-        var apprenticeMail = request.getParameter(ApprenticeConstants.EMAIL_PARAMETER);
+        var apprenticeMail = request.getParameter(Apprentice.EMAIL_PARAMETER);
         try {
             _apprenticeService.archiveApprentice(apprenticeMail);
             request.setAttribute(STATUS_QUERY_ATTRIBUTE, STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_ARCHIVE_SUCCESS);
@@ -106,7 +107,7 @@ public class TutorServlet extends ServletRequireTutor {
         apprentices = ApprenticeFilter.applyFromRequestOrSessionFilters(apprentices, request);
         if (apprentices == null || apprentices.isEmpty() && !getSessionTutor().getApprentices().isEmpty())
             request.setAttribute(EMPTY_LIST_MESSAGE_ATTRIBUTE, EMPTY_LIST_MESSAGE_ATTRIBUTE_VALUE_WHEN_FILTER_MATCH_NO_APPRENTICE);
-        request.setAttribute(ApprenticeConstants.APPRENTICES_ATTRIBUTE, apprentices);
+        request.setAttribute(Apprentice.APPRENTICES_ATTRIBUTE, apprentices);
         request.getRequestDispatcher(VIEW_PATH).forward(request, response);
     }
 }

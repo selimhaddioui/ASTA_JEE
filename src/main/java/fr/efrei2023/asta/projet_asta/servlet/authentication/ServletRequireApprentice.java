@@ -1,12 +1,14 @@
 package fr.efrei2023.asta.projet_asta.servlet.authentication;
 
 import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
-import fr.efrei2023.asta.projet_asta.utils.RedirectConstants;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+
+
+import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
 
 public abstract class ServletRequireApprentice extends ServletRequireUser {
     private ApprenticeEntity sessionApprentice;
@@ -18,7 +20,7 @@ public abstract class ServletRequireApprentice extends ServletRequireUser {
             processApprenticeRequest(request, response);
         } else {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.sendRedirect(RedirectConstants.SERVLET_PATH);
+            response.sendRedirect(Redirect.SERVLET_PATH);
         }
     }
 

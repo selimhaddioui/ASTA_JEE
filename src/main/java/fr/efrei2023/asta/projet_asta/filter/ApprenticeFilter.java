@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import static fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants.*;
+import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.Apprentice.*;
 
 public class ApprenticeFilter {
     private final static String[] _filtersName =

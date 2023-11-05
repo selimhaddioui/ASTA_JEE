@@ -2,11 +2,12 @@ package fr.efrei2023.asta.projet_asta.service.apprentice;
 
 import fr.efrei2023.asta.projet_asta.model.ApprenticeEntity;
 import fr.efrei2023.asta.projet_asta.repository.ApprenticeSessionBean;
-import fr.efrei2023.asta.projet_asta.utils.ApprenticeConstants;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 
 import java.sql.SQLException;
+
+import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.*;
 
 @Stateless
 public class ApprenticeService implements IApprenticeService {
@@ -23,7 +24,7 @@ public class ApprenticeService implements IApprenticeService {
         try {
             _apprenticeSessionBean.createApprentice(apprentice);
         } catch (SQLException e) {
-            throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_CREATE_FAIL);
+            throw new SQLException(Apprentice.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_CREATE_FAIL);
         }
     }
 
@@ -32,7 +33,7 @@ public class ApprenticeService implements IApprenticeService {
         try {
             _apprenticeSessionBean.updateApprentice(apprentice);
         } catch (IllegalArgumentException e) {
-            throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_UPDATE_FAIL);
+            throw new SQLException(Apprentice.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_UPDATE_FAIL);
         }
     }
 
@@ -45,7 +46,7 @@ public class ApprenticeService implements IApprenticeService {
             apprentice.setArchived(true);
             _apprenticeSessionBean.updateApprentice(apprentice);
         } catch (Exception e) {
-            throw new SQLException(ApprenticeConstants.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_ARCHIVE_FAIL);
+            throw new SQLException(Apprentice.STATUS_QUERY_ATTRIBUTE_VALUE_WHEN_APPRENTICE_ARCHIVE_FAIL);
         }
     }
 }
