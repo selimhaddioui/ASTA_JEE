@@ -34,6 +34,7 @@ public class ApprenticeFilter {
 
     public static List<ApprenticeEntity> applyFromRequestOrSessionFilters(List<ApprenticeEntity> apprentices, HttpServletRequest request) {
         var filters = getFiltersFromGivenFunction(request::getParameter);
+        filters.putIfAbsent(FILTER_ARCHIVE_PARAMETER, (String) request.getSession().getAttribute(FILTER_ARCHIVE_PARAMETER));
         if (filters.values().stream().noneMatch(value -> value != null && !value.isEmpty())) {
             var session = request.getSession();
             filters = getFiltersFromGivenFunction(value -> (String) session.getAttribute(value));
@@ -74,7 +75,7 @@ public class ApprenticeFilter {
 
     private static Stream<ApprenticeEntity> applyGenericFilter(Stream<ApprenticeEntity> stream, Function<ApprenticeEntity, String> function, String filterValue) {
         return filterValue != null && !filterValue.isEmpty()
-                ? stream.filter(apprentice -> function.apply(apprentice).startsWith(filterValue))
+                ? stream.filter(apprentice -> function.apply(apprentice).contains(filterValue))
                 : stream;
     }
 }

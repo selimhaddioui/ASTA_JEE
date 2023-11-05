@@ -19,11 +19,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
             <version>6.0.0</version>
@@ -32,6 +27,11 @@
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
             <version>10.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -44,11 +44,6 @@
             <version>3.1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>org.hi-api</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.2.9.Final</version>
@@ -56,6 +51,7 @@
     </dependencies>
 
     <build>
+        <finalName>ASTA</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

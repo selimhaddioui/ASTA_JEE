@@ -56,10 +56,10 @@ public class TutorServlet extends ServletRequireTutor {
                 request.getParameter(Apprentice.EMAIL_PARAMETER),
                 request.getParameter(Apprentice.FIRSTNAME_PARAMETER),
                 request.getParameter(Apprentice.LASTNAME_PARAMETER),
+                request.getParameter(Apprentice.PHONE_NUMBER_PARAMETER),
                 request.getParameter(Apprentice.PROGRAM_PARAMETER),
                 request.getParameter(Apprentice.MAJOR_PARAMETER),
                 request.getParameter(Apprentice.YEAR_PARAMETER),
-                request.getParameter(Apprentice.PHONE_NUMBER_PARAMETER),
                 isArchivedChecked
         );
         if (_apprenticeService.getApprenticeOrNull(requestApprentice.getEmail()) != null) {
