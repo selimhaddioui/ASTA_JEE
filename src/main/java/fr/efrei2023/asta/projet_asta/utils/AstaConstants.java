@@ -6,6 +6,10 @@ public class AstaConstants {
         // Attribute
         public static final String USER_ATTRIBUTE = "user";
 
+        // Servlet
+        public static final String SERVLET_NAME = "user";
+        public static final String SERVLET_PATH = "/" + SERVLET_NAME;
+
         // Table
         public static final String TABLE = "Utilisateur";
 

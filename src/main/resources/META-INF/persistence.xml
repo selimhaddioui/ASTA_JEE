@@ -9,9 +9,9 @@
         <class>fr.efrei2023.asta.projet_asta.model.entity.UserEntity</class>
         <class>fr.efrei2023.asta.projet_asta.model.entity.ApprenticeEntity</class>
         <class>fr.efrei2023.asta.projet_asta.model.entity.CompanyEntity</class>
-<!--        <class>fr.efrei2023.asta.projet_asta.model.entity.GradeEntity</class>-->
-<!--        <class>fr.efrei2023.asta.projet_asta.model.entity.JobEntity</class>-->
-<!--        <class>fr.efrei2023.asta.projet_asta.model.entity.VisitEntity</class>-->
+        <class>fr.efrei2023.asta.projet_asta.model.entity.GradeEntity</class>
+        <class>fr.efrei2023.asta.projet_asta.model.entity.JobEntity</class>
+        <class>fr.efrei2023.asta.projet_asta.model.entity.VisitEntity</class>
         <properties>
             <!--            provider configuration            -->
             <property name = "hibernate.show_sql" value = "true" />

@@ -20,11 +20,9 @@ public class RedirectServlet extends ServletRequireUser {
         var sessionUser = super.getSessionUser();
         if (sessionUser instanceof TutorEntity) {
             response.sendRedirect(request.getContextPath() + Tutor.SERVLET_PATH);
-            return;
         }
         if (sessionUser instanceof ApprenticeEntity) {
             response.sendRedirect(request.getContextPath() + Apprentice.SERVLET_PATH);
-            return;
         }
         response.sendError(HttpServletResponse.SC_BAD_REQUEST);
     }

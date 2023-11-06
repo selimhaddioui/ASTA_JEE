@@ -16,11 +16,6 @@ public class VisitId implements Serializable {
     @Column(name = DATE_COLUMN)
     private String date;
 
-    public VisitId(ApprenticeEntity apprentice, String date) {
-        this.apprentice = apprentice;
-        this.date = date;
-    }
-
     public VisitId() {
 
     }
@@ -36,8 +31,7 @@ public class VisitId implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof VisitId)) return false;
-        VisitId visitId = (VisitId) o;
+        if (!(o instanceof VisitId visitId)) return false;
         return apprentice.equals(visitId.apprentice) && date.equals(visitId.date);
     }
 

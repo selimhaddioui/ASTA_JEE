@@ -2,7 +2,6 @@ package fr.efrei2023.asta.projet_asta.servlet;
 
 import java.io.IOException;
 
-import fr.efrei2023.asta.projet_asta.utils.AstaConstants;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;

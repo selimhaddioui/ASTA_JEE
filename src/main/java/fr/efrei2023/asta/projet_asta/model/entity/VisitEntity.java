@@ -1,7 +1,5 @@
 package fr.efrei2023.asta.projet_asta.model.entity;
 
-import java.util.Date;
-
 import jakarta.persistence.*;
 
 import fr.efrei2023.asta.projet_asta.model.entity.embeddable.VisitId;
