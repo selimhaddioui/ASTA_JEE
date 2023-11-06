@@ -2,6 +2,7 @@ package fr.efrei2023.asta.projet_asta.servlet;
 
 import java.io.IOException;
 
+import fr.efrei2023.asta.projet_asta.utils.AstaConstants;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import static fr.efrei2023.asta.projet_asta.utils.AstaConstants.Apprentice.*;
 public class ApprenticeServlet extends ServletRequireApprentice {
     @Override
     protected void processApprenticeRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute(SELECTED_APPRENTICE_ATTRIBUTE, getSessionApprentice());
         request.getRequestDispatcher(VIEW_PATH).forward(request, response);
     }
 }

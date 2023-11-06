@@ -28,9 +28,17 @@ public class JobEntity {
     @Column(name = REMARK_COLUMN)
     private String remarks;
 
+    @Column(name = APPRENTICE_FEEDBACK_COLUMN)
+    private String apprenticeFeedBack;
+
+    @Column(name = APPRENTICE_GRADING_COLUMN)
+    private String apprenticeGrading;
+
     public CompanyEntity getCompany() {
         return company;
     }
+
+
 
     public String getDescriptionKeysWords() {
         return descriptionKeysWords;
@@ -38,6 +46,14 @@ public class JobEntity {
 
     public String getCigrefJob() {
         return cigrefJob;
+    }
+
+    public String getApprenticeFeedBack() {
+        return apprenticeFeedBack;
+    }
+
+    public String getApprenticeGrading() {
+        return apprenticeGrading;
     }
 
     public String getRemarks() {

@@ -126,6 +126,8 @@ public class AstaConstants {
         public static final String DESCRIPTION_COLUMN = "Description";
         public static final String CIGREF_JOB_COLUMN = "Cigref";
         public static final String REMARK_COLUMN = "Commentaire";
+        public static final String APPRENTICE_FEEDBACK_COLUMN = "FeedbackApprenti";
+        public static final String APPRENTICE_GRADING_COLUMN = "EvaluationApprenti";
     }
 
     public static class Visit {
@@ -137,6 +139,21 @@ public class AstaConstants {
         public static final String DATE_COLUMN = "Date";
         public static final String FORMAT_COLUMN = "Format";
         public static final String REMARK_COLUMN = "CompteRendu";
+
+    }
+
+    public static class Grade {
+        // Attribute
+        public static final String TABLE = "Evaluation";
+
+        // Columns
+        public static final String ID_COLUMN = "ID_Evaluation";
+        public static final String APPRENTICE_COLUMN = "Apprenti";
+        public static final String SUBJECT_COLUMN = "Sujet";
+        public static final String DATE_COLUMN = "Date";
+        public static final String GRADE_COLUMN = "Note";
+        public static final String REMARKS_COLUMN = "Commentaire";
+        public static final String TYPE_COLUMN = "Type_Evaluation";
 
     }
 

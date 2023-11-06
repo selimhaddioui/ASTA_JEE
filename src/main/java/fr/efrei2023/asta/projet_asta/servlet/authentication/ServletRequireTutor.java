@@ -20,7 +20,7 @@ public abstract class ServletRequireTutor extends ServletRequireUser {
             processTutorRequest(request, response);
         } else {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.sendRedirect(Redirect.SERVLET_PATH);
+            response.sendRedirect(request.getContextPath() + Redirect.SERVLET_PATH);
         }
     }
 

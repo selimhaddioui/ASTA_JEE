@@ -20,6 +20,10 @@ public class TutorEntity extends UserEntity {
     @Column(name = REMARK_COLUMN)
     private String remark;
 
+    public String getJob() {
+        return job;
+    }
+
     public List<ApprenticeEntity> getApprentices() {
         return apprentices;
     }

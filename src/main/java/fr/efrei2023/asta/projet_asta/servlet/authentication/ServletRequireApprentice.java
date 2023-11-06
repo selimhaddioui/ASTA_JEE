@@ -20,7 +20,7 @@ public abstract class ServletRequireApprentice extends ServletRequireUser {
             processApprenticeRequest(request, response);
         } else {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.sendRedirect(Redirect.SERVLET_PATH);
+            response.sendRedirect(request.getContextPath() + Redirect.SERVLET_PATH);
         }
     }
 

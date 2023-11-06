@@ -18,6 +18,14 @@ public class CompanyEntity {
     @Column(name = ACCESS_INFO_COLUMN)
     private String accessInformation;
 
+    public String getAccessInformation() {
+        return accessInformation;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
     public CompanyEntity() {
     }
 

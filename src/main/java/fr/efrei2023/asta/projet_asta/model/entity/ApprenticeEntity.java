@@ -23,6 +23,8 @@ public class ApprenticeEntity extends UserEntity {
     private JobEntity job;
     @OneToMany(mappedBy = "id.apprentice", fetch = FetchType.EAGER)
     private List<VisitEntity> visits;
+    @OneToMany(mappedBy = "apprentice", fetch = FetchType.EAGER)
+    private List<GradeEntity> grades;
     @Column(name = PROGRAM_COLUMN)
     private String program;
     @Column(name = MAJOR_COLUMN)
@@ -63,8 +65,20 @@ public class ApprenticeEntity extends UserEntity {
         this(null, email, firstName, lastName, phoneNumber, program, major, year, archived);
     }
 
+    public TutorEntity getTutor() {
+        return tutor;
+    }
+
     public JobEntity getJob() {
         return job;
+    }
+
+    public List<VisitEntity> getVisits() {
+        return visits;
+    }
+
+    public List<GradeEntity> getGrades() {
+        return grades;
     }
 
     public String getProgram() {
@@ -85,9 +99,5 @@ public class ApprenticeEntity extends UserEntity {
 
     public void setArchived(boolean isArchived) {
         this.archived = isArchived;
-    }
-
-    public List<VisitEntity> getVisits() {
-        return visits;
     }
 }
