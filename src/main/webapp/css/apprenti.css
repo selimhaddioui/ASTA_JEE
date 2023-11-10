@@ -1,0 +1,28 @@
+body {
+    color: #ffffff;
+}
+
+.bg {
+    width: 100%;
+    display: flex;
+    background-size: cover;
+    background-color: #727272;
+    margin: auto;
+}
+
+.big-container {
+    background-color: #8f8f8f;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1, h2, h3 {
+    color: #444444;
+}

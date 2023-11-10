@@ -34,14 +34,14 @@
 }
 
 .custom-form-container {
-    background-color: #bebebe; /* Gris légèrement plus foncé */
+    background-color: #bebebe;
     border-radius: 10px;
     padding: 20px;
 }
 .custom-form-title {
-    background-color: #bebebe; /* Même couleur que le fond du conteneur */
+    background-color: #bebebe;
     display: inline-block;
     padding: 5px 15px;
-    border-radius: 10px 10px 0 0; /* Coins supérieurs arrondis */
-    margin: -20px -20px 20px -20px; /* Pour couvrir la bordure du conteneur */
+    border-radius: 10px 10px 0 0;
+    margin: -20px -20px 20px -20px;
 }

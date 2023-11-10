@@ -42,3 +42,7 @@
 .custom-pagination .page-item.active .page-link {
     background-color: lightyellow; /* Couleur de fond pour la page active */
 }
+
+text_color{
+    color: black;
+}

@@ -7,11 +7,11 @@
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filterModal">Filtrer</button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filterModal">Rechercher un apprenti</button>
 
 <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-content text_color">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="filterModalLabel">Filtres</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
